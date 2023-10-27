@@ -1,3 +1,5 @@
 main:
   - title: "What is AutoRL"
     url: /about-autorl/
+  - title: "Blog"
+    url: /blog/
