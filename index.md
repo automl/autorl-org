@@ -6,4 +6,4 @@ layout: splash
 author_profile: true
 ---
 
-<b> AutoRL.org is currently under construction. For further information, see: [https://www.automl.org/automated-reinforcement-learning/](https://www.automl.org/automated-reinforcement-learning/) </b> 
+** AutoRL.org is currently under construction. For further information, see: [https://www.automl.org/automated-reinforcement-learning/](https://www.automl.org/automated-reinforcement-learning/) ** 
