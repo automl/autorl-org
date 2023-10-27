@@ -1,5 +1,5 @@
 ---
-permalink: /about/
+permalink: /about-autorl/
 title: "What is AutoRL?"
 ---
 
