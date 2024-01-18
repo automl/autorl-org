@@ -14,6 +14,7 @@ We write an AutoRL blog and try to keep on top of interesting events for AutoRL 
 <center>
     <img src="/assets/images/autorl.png" alt="Visualization of the AutoRL Loop" />
 </center>
+<br>
 
 Reinforcement learning (RL) is a simple, yet powerful paradigm for training intelligent agents to perform a given task. To do so, RL agents interact with the world they exist in. Guided by a reward signal, RL agents learn in a trial-and-error fashion. That is, RL agents follow a policy, observe if the policy was good or bad and, depending on this outcome, update their policy to get better at a given task.
 

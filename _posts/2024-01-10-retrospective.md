@@ -11,7 +11,8 @@ tags:
 
 <br>
 <center>
-  <img src="/assets/images/blog_2023_retro/GPT_generated.jpg" alt="GPT-generated image depicting AutoRL" height="300" width="300"/>
+  <img src="/assets/images/blog_2023_retro/GPT_generated.jpg" alt="GPT-generated image depicting AutoRL" height="500" width="500"/>
+  <br>
   GPT-generated image depicting AutoRL
 </center>
 <br>
@@ -26,6 +27,7 @@ Language models have been on everyone’s mind this last year, and with good rea
 <br>
 <center>
   <img src="/assets/images/blog_2023_retro/voyager.png" />
+  <br>
   Key components of the Voyager LLM-based agent. Image credit: <em>Voyager</em> paper (see text)
 </center>
 <br>
@@ -35,6 +37,7 @@ _Agents_ [[Zhou et al., ArXiv]](https://arxiv.org/abs/2309.07870) is a user-frie
 <br>
 <center>
   <img src="/assets/images/blog_2023_retro/agents_framework.png" />
+  <br>
   An overview of the Agents framework. Image credit: <em>Agents</em> paper (see text)
 </center>
 <br>
