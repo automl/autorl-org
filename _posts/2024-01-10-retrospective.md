@@ -9,6 +9,11 @@ tags:
 
 ### 2023 in AutoRL
 
+<br>
+![image](/assets/images/blog_2023_retro/GPT_generated.jpg)
+<center>GPT-generated image depicting AutoRL</center>
+<br>
+
 What a year 2023 has been in machine learning! Beyond the obvious explosion in LLM capability, it was also a great year for all things AutoRL. From combining RL with LLMs through more efficient MetaRL and updates in an environment design to classic hyperparameter optimization, these are some of our top picks, plus a selection of our own AutoRL projects at the end of this post. So sit back and enjoy some of the most interesting AutoRL papers of 2023.
 
 
@@ -16,13 +21,17 @@ What a year 2023 has been in machine learning! Beyond the obvious explosion in L
 
 Language models have been on everyone’s mind this last year, and with good reason. So it’s only natural to try and use the capabilities of LLMs as common sense or reasoning models to support RL. LLMs have successfully been used as policies and curriculum generation mechanisms in _Voyager_ [[Wang et al., ArXiv]](https://voyager.minedojo.org/), but also for finding expressive rewards signals in robotics (_Eureka_ [[Ma et al., ArXiv](https://eureka-research.github.io/)]) and exploration environments like MiniHack (_Motif_ [[Klissarov et al., ALOE@NeurIPS](https://arxiv.org/abs/2310.00166)]).
 
+<br>
 ![image](/assets/images/blog_2023_retro/voyager.png)
 <center>Key components of the Voyager LLM-based agent. Image credit: <em>Voyager</em> paper (see text)</center>
+<br>
 
 _Agents_ [[Zhou et al., ArXiv]](https://arxiv.org/abs/2309.07870) is a user-friendly library that enables non-specialists to build state-of-the-art autonomous language agents without much coding. _Generative Agents_ [[Park et al., ArXiv]](https://arxiv.org/abs/2304.03442) introduces architectural and interaction patterns that fuse LLMs with computational software agents that simulate believable human behaviour in a sandbox.
 
+<br>
 ![image](/assets/images/blog_2023_retro/agents_framework.png)
-<center>An overview of the Agents framework. Image credit: <em>Voyager</em> paper (see text)</center>
+<center>An overview of the Agents framework. Image credit: <em>Agents</em> paper (see text)</center>
+<br>
 
 Robotics had some eye-catching works this year. [[Brohan et al., ArXiv]](https://arxiv.org/abs/2307.15818) trained _Robotic Transformer 2_ (RT-2), a vision-language-action (VLA) model based on vision-language models (VLMs), that can plan from both image and text commands. [[Hansen et al., ArXiv]](https://arxiv.org/abs/2310.16828) (_TD-MPC2_) train multi-task agents with world models that scale up with model size (up to 319M) on continuous control tasks with a single set of hyperparameters.
 
