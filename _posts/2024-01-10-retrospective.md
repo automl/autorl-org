@@ -28,7 +28,7 @@ Language models have been on everyone’s mind this last year, and with good rea
 <center>
   <img src="/assets/images/blog_2023_retro/voyager.png" />
   <br>
-  Key components of the Voyager LLM-based agent. Image credit: <em>Voyager</em> paper (see text)
+  Key components of the Voyager LLM-based agent. Image credit: <a href="https://voyager.minedojo.org/"><em>Voyager</em> paper</a>
 </center>
 <br>
 
@@ -38,7 +38,7 @@ _Agents_ [[Zhou et al., ArXiv]](https://arxiv.org/abs/2309.07870) is a user-frie
 <center>
   <img src="/assets/images/blog_2023_retro/agents_framework.png" />
   <br>
-  An overview of the Agents framework. Image credit: <em>Agents</em> paper (see text)
+  An overview of the Agents framework. Image credit: <a href="https://arxiv.org/abs/2309.07870"><em>Agents</em> paper</a>
 </center>
 <br>
 
@@ -51,6 +51,12 @@ The Meta-RL year started off strong with an excellent survey on the field in Jan
 
 A big topic in Meta-RL this year was learning RL algorithms - unlike the approaches often used in the past, however, this year, in-context RL was the dominant idea for learning RL. From _AdA,_ which showed rapid in-context adaptation to new task variations [[Bauer et al., ICML](https://arxiv.org/abs/2301.07608)], to learning an RL algorithm from supervised pre-training (_DPT_) [[Lee et al., ArXiv](https://arxiv.org/pdf/2306.14892.pdf)] or adapting to new tasks [[Chandra et al., FMDM@NeurIPS](https://arxiv.org/pdf/2312.03801.pdf)] in-context, this seems to be a promising future direction for meta-learned RL algorithms.
 
+<center>
+  <img src="/assets/images/blog_2023_retro/ada.png" />
+  <br>
+  In-context adaption with AdA. Image credit: <a href="https://arxiv.org/abs/2301.07608"><em>AdA</em> paper</a>
+</center>
+<br>
 
 #### Environment Design
 
@@ -58,12 +64,26 @@ Generating challenging training environments and curricula has continued to be a
 
 In curriculum generation, [[Bajaj et al., ICAPS 2023]](https://ojs.aaai.org/index.php/ICAPS/article/view/27235) combine learning from demonstrations and curriculum learning to perform Automated Curriculum Learning from Demonstrations on sparse reward tasks. [[Samvelyan et al., ICLR 2023]](https://arxiv.org/pdf/2303.03376.pdf) apply environment design to the multi-agent setting while keeping the abilities of other agents in mind in _MAESTRO_. Meanwhile, [[Jackson et al., NeurIPS 2023](https://arxiv.org/pdf/2310.02782.pdf)] show that curricula are not only useful for learning policies but also in learning better RL algorithms. 
 
+<center>
+  <img src="/assets/images/blog_2023_retro/vec2rew.png" />
+  <br>
+  Reward generation using Text2Reward. Image credit: <a href="https://arxiv.org/abs/2309.11489"><em>Text2Reward</em> paper</a>
+</center>
+<br>
+
 
 #### RL Hyperparameters
 
 [[Beukmann et al., NeurIPS 2023]](https://arxiv.org/abs/2310.16686) generalise to new transition dynamics using a hypernetwork that generates the weights of an adapter module that conditions the behaviour of an agent on the environment context. [[Lan et al., ArXiv]](https://arxiv.org/abs/2302.01470) train an adaptive optimizer with inductive biases to generalise on learning rate control from toy tasks to complex Brax tasks. [[Sabbioni et al., ArXiv]](https://arxiv.org/abs/2306.07741) meta-learn setting the learning rate adaptively for sampled contextual test tasks.
 
 [[Yuan et al., ICML 2023]](https://proceedings.mlr.press/v202/yuan23c/yuan23c.pdf) use a multi-armed bandit formulation, dubbed Automatic Intrinsic Reward Shaping, to select between different exploration strategies on MiniGrid, Procgen, and DeepMind Control Suite. This could be a promising strategy for dynamic Algorithm Selection in RL.
+
+<center>
+  <img src="/assets/images/blog_2023_retro/reward_selection.png" />
+  <br>
+  Intrinsic reward selection via UCB. Image credit: <a href="https://proceedings.mlr.press/v202/yuan23c/yuan23c.pdf"><em>Automatic Instrinsic Reward Shaping</em> paper</a>
+</center>
+<br>
 
 
 #### Benchmarks & Libraries
@@ -74,16 +94,55 @@ The same goes for the JAXification of RL – while benchmarks like [XLand](https
 
 On the side of new AutoRL focus libraries, [minimax](https://github.com/facebookresearch/minimax) and [Syllabus](https://github.com/RyanNavillus/Syllabus) both aim to make curriculum learning faster, easier to implement, and more comparable. They take slightly different approaches, though: while Syllabus offers a way of implementing the curriculum that works with different base algorithms (their examples include CleanRL and RLLib), minimax uses its own PPO implementation to keep evaluations directly comparable. Together they should cover most curriculum generation use cases, hopefully bringing a bit more standardisation to the field.
 
+<center>
+  <img src="/assets/images/blog_2023_retro/purejax.png" />
+  <br>
+  Speedups with PureJAX. Image credit: <a href="https://github.com/luchris429/purejaxrl">PureJAX repo</a>
+</center>
+<br>
+
 
 #### AutoRL.org Projects
 
 Of course, we weren’t idle throughout the year either. One important topic was benchmarking this year, as you can see in “[MDP Playground: An Analysis and Debug Testbed for Reinforcement Learning](https://jair.org/index.php/jair/article/view/14314)” [Rajan et al., JAIR]. MDP Playground lets you define properties of MDPs, including delayed rewards, stochasticity, image representations, time unit, action range, and more to unit test your algorithms on toy MDPs or test its robustness on standard complex MDPs such as Atari and Mujoco using Gym wrappers.
 
+<center>
+  <img src="/assets/images/blog_2023_retro/mdp_playground.png" />
+  <br>
+  Testing robustness against reward delay in DQNs on Atari. Image credit: <a href="https://jair.org/index.php/jair/article/view/14314">MDP Playground paper</a>
+</center>
+<br>
+
 On the hyperparameter side of things, we go back to the basics in “Hyperparameters in Reinforcement Learning and How To Tune Them”[ [Eimer et al., ICML]](https://arxiv.org/abs/2306.01324) for an investigation into how hard HPO for RL actually is and which existing tools work well for it. We show that automated HPO tools can give us similar results to grid searches for less than 10x the compute and propose best practices of how to incorporate HPO into experiments and reporting for more reproducible RL research. Further, “Gray-Box Gaussian Processes for Automated Reinforcement Learning” [[Shala et al., ICLR]](https://openreview.net/forum?id=rmoMvptXK7M) discusses how to fuse hyperparameter configurations, reward-curve information, as well as optimization budgets to perform efficient bayesian optimization specifically for AutoRL.
+
+<center>
+  <img src="/assets/images/blog_2023_retro/hps_in_rl.png" />
+  <br>
+  Hand tuning compared to automatic HPO in RL. Image credit: <a href="https://arxiv.org/abs/2306.01324">HPs in RL paper</a>
+  <br>
+  <img src="/assets/images/blog_2023_retro/grey_box_gps.png" />
+  <br>
+  Improvement of Grey-Box GPs on PPO compared to PBT variations. Image credit: <a href="https://openreview.net/forum?id=rmoMvptXK7M">Grey-Box GP paper</a>
+</center>
+<br>
 
 Going beyond that, in “AutoRL Hyperparameter Landscapes” [[Mohan et al., AutoML]](https://arxiv.org/pdf/2304.02396.pdf), we examine the relationship between hyperparameters, performance, and training time: how important are hyperparameter schedules in RL? We analyze this using landscape analysis across different types of hyperparameters (discounting, learning speed, and exploration) and agents (value-based and policy-based) and observe that the optimal regions of hyperparameters change as the agent trains, reaffirming the need for prioritising dynamic hyperparameter adaptations in RL.
 
+<center>
+  <img src="/assets/images/blog_2023_retro/landscapes.png.png" />
+  <br>
+  Development of optimal learning rate and discount factor values for SAC over time. Image credit: <a href="https://arxiv.org/pdf/2304.02396.pdf">RL Landscapes paper</a>
+</center>
+<br>
+
 On the topic of different kinds of learning objectives in Meta-RL and AutoRL, we unify diverse methodologies in Meta-RL and AutoRL under a design-pattern-oriented framework in [[Mohan et al., 2023]](https://arxiv.org/pdf/2306.16021.pdf) highlighting the crucial role of structural integration in learning processes. Adding Structured RL into our research toolkit promises to enhance our understanding and capabilities in Meta-RL and Auto-RL significantly.
+
+<center>
+  <img src="/assets/images/blog_2023_retro/structure.png" />
+  <br>
+  Overview of how to incorporate structure into RL. Image credit: <a href="https://arxiv.org/pdf/2306.16021.pdf">Structure in RL paper</a>
+</center>
+<br>
 
 These are our best of 2023 – what have we missed, what are your highlights? Hopefully, 2024 can give us a similarly diverse range of exciting AutoRL research & software. Apart from the usual suspects, the [RL conference](https://rl-conference.cc/) with its first edition as well as [COLLAs](https://lifelong-ml.cc/) and the [AutoML-Conf](https://2024.automl.cc/) with their fourth and third editions respectively are likely venues for great AutoRL work in the coming year. So happy New Year and happy researching!
 
