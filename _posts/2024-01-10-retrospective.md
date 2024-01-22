@@ -114,7 +114,7 @@ On the side of new AutoRL focus libraries, [minimax](https://github.com/facebook
 Of course, we weren’t idle throughout the year either. One important topic was benchmarking this year, as you can see in “[MDP Playground: An Analysis and Debug Testbed for Reinforcement Learning](https://jair.org/index.php/jair/article/view/14314)” [Rajan et al., JAIR]. MDP Playground lets you define properties of MDPs, including delayed rewards, stochasticity, image representations, time unit, action range, and more to unit test your algorithms on toy MDPs or test its robustness on standard complex MDPs such as Atari and Mujoco using Gym wrappers.
 
 <center>
-  <img src="/assets/images/blog_2023_retro/hps_in_rl.png"/>
+  <img src="/assets/images/blog_2023_retro/hps_in_rl.png" height="200"/>
   <br>
   Hand tuning compared to automatic HPO in RL. Image credit: <a href="https://arxiv.org/abs/2306.01324">HPs in RL paper</a>
 </center>
