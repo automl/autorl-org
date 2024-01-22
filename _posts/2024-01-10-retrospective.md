@@ -132,7 +132,7 @@ On the hyperparameter side of things, we go back to the basics in “Hyperparame
 Going beyond that, in “AutoRL Hyperparameter Landscapes” [[Mohan et al., AutoML]](https://arxiv.org/pdf/2304.02396.pdf), we examine the relationship between hyperparameters, performance, and training time: how important are hyperparameter schedules in RL? We analyze this using landscape analysis across different types of hyperparameters (discounting, learning speed, and exploration) and agents (value-based and policy-based) and observe that the optimal regions of hyperparameters change as the agent trains, reaffirming the need for prioritising dynamic hyperparameter adaptations in RL.
 
 <center>
-  <img src="/assets/images/blog_2023_retro/landscapes.png.png" />
+  <img src="/assets/images/blog_2023_retro/landscapes.png" />
   <br>
   Development of optimal learning rate and discount factor values for SAC over time. Image credit: <a href="https://arxiv.org/pdf/2304.02396.pdf">RL Landscapes paper</a>
 </center>
