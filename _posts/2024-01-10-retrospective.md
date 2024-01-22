@@ -104,8 +104,6 @@ On the side of new AutoRL focus libraries, [minimax](https://github.com/facebook
 
 #### AutoRL.org Projects
 
-Of course, we weren’t idle throughout the year either. One important topic was benchmarking this year, as you can see in “[MDP Playground: An Analysis and Debug Testbed for Reinforcement Learning](https://jair.org/index.php/jair/article/view/14314)” [Rajan et al., JAIR]. MDP Playground lets you define properties of MDPs, including delayed rewards, stochasticity, image representations, time unit, action range, and more to unit test your algorithms on toy MDPs or test its robustness on standard complex MDPs such as Atari and Mujoco using Gym wrappers.
-
 <center>
   <img src="/assets/images/blog_2023_retro/mdp_playground.png" />
   <br>
@@ -113,13 +111,19 @@ Of course, we weren’t idle throughout the year either. One important topic was
 </center>
 <br>
 
+Of course, we weren’t idle throughout the year either. One important topic was benchmarking this year, as you can see in “[MDP Playground: An Analysis and Debug Testbed for Reinforcement Learning](https://jair.org/index.php/jair/article/view/14314)” [Rajan et al., JAIR]. MDP Playground lets you define properties of MDPs, including delayed rewards, stochasticity, image representations, time unit, action range, and more to unit test your algorithms on toy MDPs or test its robustness on standard complex MDPs such as Atari and Mujoco using Gym wrappers.
+
+<center>
+  <img src="/assets/images/blog_2023_retro/hps_in_rl.png"/>
+  <br>
+  Hand tuning compared to automatic HPO in RL. Image credit: <a href="https://arxiv.org/abs/2306.01324">HPs in RL paper</a>
+</center>
+<br>
+
 On the hyperparameter side of things, we go back to the basics in “Hyperparameters in Reinforcement Learning and How To Tune Them”[ [Eimer et al., ICML]](https://arxiv.org/abs/2306.01324) for an investigation into how hard HPO for RL actually is and which existing tools work well for it. We show that automated HPO tools can give us similar results to grid searches for less than 10x the compute and propose best practices of how to incorporate HPO into experiments and reporting for more reproducible RL research. Further, “Gray-Box Gaussian Processes for Automated Reinforcement Learning” [[Shala et al., ICLR]](https://openreview.net/forum?id=rmoMvptXK7M) discusses how to fuse hyperparameter configurations, reward-curve information, as well as optimization budgets to perform efficient bayesian optimization specifically for AutoRL.
 
 <center>
-  <img src="/assets/images/blog_2023_retro/hps_in_rl.png" style="width: 30vw"/>
-  <br>
-  Hand tuning compared to automatic HPO in RL. Image credit: <a href="https://arxiv.org/abs/2306.01324">HPs in RL paper</a>
-  <img src="/assets/images/blog_2023_retro/grey_box_gps.png" style="width: 70vw"/>
+  <img src="/assets/images/blog_2023_retro/grey_box_gps.png"/>
   <br>
   Improvement of Grey-Box GPs on PPO compared to PBT variations. Image credit: <a href="https://openreview.net/forum?id=rmoMvptXK7M">Grey-Box GP paper</a>
 </center>
