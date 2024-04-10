@@ -7,6 +7,8 @@ tags:
   - 2023
 ---
 
+TL;DR: From combining RL with LLMs through more efficient MetaRL and updates in an environment design to classic hyperparameter optimization, these are some of our top picks, plus a selection of our own AutoRL projects at the end of this post. So sit back and enjoy some of the most interesting AutoRL papers of 2023.
+
 ### 2023 in AutoRL
 
 <br>
