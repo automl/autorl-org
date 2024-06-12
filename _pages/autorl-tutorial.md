@@ -3,7 +3,7 @@ permalink: /tutorial/
 title: "AutoRL Tutorial 2024"
 ---
 
-# Tutorial on AutoRL 2024
+# Beyond Trial & Error: A Tutorial on Automated Reinforcement Learning
 
 This page serves as an overview of André Biedenkapp and Theresa Eimer's tutorial on AutoRL at ECAI 2024. We will add slides and code examples at a later point.
 
