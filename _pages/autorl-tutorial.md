@@ -23,3 +23,10 @@ The tutorial outline is:
 - Hyperparameters and experimental design
 - Forms of optimization with pros and cons (AC methods, PBT, heuristics, meta-gradients, etc.)
 - Combining HPO with other AutoRL domains and why this is important for RL generally
+
+
+Speakers:
+**Theresa Eimer** is a Ph.D. student at the Leibniz University of Hannover focusing on the intersection of AutoML and Reinforcement Learning. Her goal is to make Reinforcement Learning work out of the box through better generalization and automatic configuration.
+
+**André Biedenkapp** is a Postdoctoral Fellow at the University of Freiburg focusing on dynamic configuration with and for deep reinforcement learning.
+With his work, he aims to democratize deep reinforcement learning.
