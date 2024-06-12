@@ -1,5 +1,5 @@
 ---
-permalink: /tutorial/
+permalink: /tutorial-ecai/
 title: "AutoRL Tutorial 2024"
 ---
 
