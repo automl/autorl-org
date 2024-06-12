@@ -7,7 +7,7 @@ title: "AutoRL Tutorial 2024"
 
 This page serves as an overview of André Biedenkapp and Theresa Eimer's tutorial on AutoRL at ECAI 2024. We will add slides and code examples at a later point.
 
-The tutorial outline is:
+### Outline
 1. Introduction and algorithmic part on AutoRL
 - Motivation: Why does AutoRL matter?
 - Formal definition of AutoRL
@@ -25,7 +25,7 @@ The tutorial outline is:
 - Combining HPO with other AutoRL domains and why this is important for RL generally
 
 
-Speakers:
+### Speakers
 **Theresa Eimer** is a Ph.D. student at the Leibniz University of Hannover focusing on the intersection of AutoML and Reinforcement Learning. Her goal is to make Reinforcement Learning work out of the box through better generalization and automatic configuration.
 
 **André Biedenkapp** is a Postdoctoral Fellow at the University of Freiburg focusing on dynamic configuration with and for deep reinforcement learning.
