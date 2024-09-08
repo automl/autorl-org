@@ -20,6 +20,11 @@ Reinforcement learning (RL) is a simple, yet powerful paradigm for training inte
 
 The simplicity of this paradigm raises the expectations that RL should be applicable in a wide variety of problem domains. However, in practice, it is well known that existing RL algorithms are brittle, require attention to minute implementation details and are sensitive to the experimental setup in general. As a result, RL has not found wide-spread adoption for many real-world tasks. AutoML provides ample solution approaches to overcome these issues in RL, but conversely, RL also offers novel opportunities for AutoML researchers.
 
-# Announcing the AutoRL workshop at ICML 2024, Vienna
 
-Please visit the [workshop website](https://autorlworkshop.github.io/) for more details.
+# Announcements
+* Theresa Eimer and André Biedenkapp will be giving a series of tutorials on AutoML in September and October:
+  * 06.09.24 [AutoML School](https://www.automlschool.org/)
+  * 10.09.24 [AutoML'24 Conference](https://2024.automl.cc/?page_id=1575)
+  * 18.10.24 [ECAI'24](https://www.ecai2024.eu/programme/tutorials)
+* We are excited to announce the first AutoRL workshop at ICML 2024, Vienna.
+  Please visit the [workshop website](https://autorlworkshop.github.io/) for more details.
