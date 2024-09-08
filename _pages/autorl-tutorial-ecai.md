@@ -8,8 +8,7 @@ title: "AutoRL Tutorial 2024"
 This page serves as an overview of André Biedenkapp and Theresa Eimer's tutorial on AutoRL at ECAI 2024. We will add slides and code examples at a later point.
 
 ### Outline
-Introduction and algorithmic part on AutoRL
-(60min, André Biedenkapp):
+Introduction and algorithmic part on AutoRL (60min):
 1. Motivation: Why does AutoRL matter?
 2. Formal definition of AutoRL
 3. Categories of AutoRL approaches (i.e. giving an overview of
