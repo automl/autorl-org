@@ -3,10 +3,10 @@ permalink: /tutorial-ecai/
 title: "AutoRL Tutorial 2024"
 ---
 
-**Slides**: Will be made available here <BR>
+**Slides**: https://colab.research.google.com/drive/1dBTSGHZzvt1mErrt4bedErcdnUiL1Qtn
 **Colab Notebook links**:
-* Practical Session 1 (TBA)
-* Practical Session 2 (TBA)
+* Practical Session 1: https://colab.research.google.com/drive/1VjWng8KeGiW1RnsU6FYriaxAOxkBooXc
+* Practical Session 2: https://colab.research.google.com/drive/1dBTSGHZzvt1mErrt4bedErcdnUiL1Qtn?usp=sharing
 
 
 # Beyond Trial & Error: A Tutorial on Automated Reinforcement Learning
