@@ -3,45 +3,42 @@ permalink: /tutorial-ecai/
 title: "AutoRL Tutorial 2024"
 ---
 
+**Slides**: Will be made available here
+Colab Notebook links:
+* Practical Session 1 (TBA)
+* Practical Session 2 (TBA)
+
+
 # Beyond Trial & Error: A Tutorial on Automated Reinforcement Learning
 
 This page serves as an overview of André Biedenkapp and Theresa Eimer's tutorial on AutoRL at ECAI 2024. We will add slides and code examples at a later point.
 
 ### Outline
 Introduction and algorithmic part on AutoRL (60min):
-1. Motivation: Why does AutoRL matter?
-2. Formal definition of AutoRL
-3. Categories of AutoRL approaches (i.e. giving an overview of
-what AutoRL encompasses)
-4. Properties of AutoRL landscapes
-5. What are AutoRL-specific challenges compared to AutoML for
-supervised learning?
-6. Why are dynamic configuration approaches important for RL,
-and how do we learn them?
+1. Primer on RL
+2. Why Does AutoRL matter?
+3. The Choice of ALgorithm matters!
+5. Properties of AutoRL Hyperparameter Landscapes
+6. Optimizing the Full Pipeline
+7. The Role of Networks
+8. The role of Environments
+Q&A
 
-15min break
+Practical Session I: Visualizing RL Hyperparameter Landscapes (30min)
 
-Practical Session I: Working with design decisions (45min):
-1. Examples of adapting different design decisions (e.g. hyperpa-
-rameters and environments)
-2. Defining AutoRL search spaces
-3. Measuring AutoRL performance
+Coffee Break (30min)
 
 Practical guidelines and case study of hyperparameters (45min):
 1. Examples of successful AutoRL DAC and online approaches
-2. Evaluation and Generalization of AutoRL
-3. Options for HPO with pros and cons (AC methods, PBT, heuris-
+2. Combining AutoRL Approaches
+3. Evaluation and Generalization of AutoRL
+4. Options for HPO with pros and cons (AC methods, PBT, heuris-
 tics, meta-gradients, etc.)
-4. Hyperparameters and experimental design
-5. Combining HPO with other AutoRL domains and why this is
-important for RL generally
+5. Hyperparameters and experimental design
+6. Benchmarking (Auto)RL
+Q&A
 
-15min break
-
-Practical Session II: Tools for HPO in RL (45min):
-1. Applying standard AutoML tools in RL
-2. Considerations for dynamic HPO
-3. RL-specific HPO tools
+Practical Session II: Tools for HPO in RL (45min)
 
 
 ### Speakers
