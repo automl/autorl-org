@@ -3,8 +3,8 @@ permalink: /tutorial-ecai/
 title: "AutoRL Tutorial 2024"
 ---
 
-**Slides**: Will be made available here
-Colab Notebook links:
+**Slides**: Will be made available here <BR>
+**Colab Notebook links**:
 * Practical Session 1 (TBA)
 * Practical Session 2 (TBA)
 
