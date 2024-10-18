@@ -3,7 +3,7 @@ permalink: /tutorial-ecai/
 title: "AutoRL Tutorial 2024"
 ---
 
-**Slides**: [https://colab.research.google.com/drive/1dBTSGHZzvt1mErrt4bedErcdnUiL1Qtn](https://colab.research.google.com/drive/1dBTSGHZzvt1mErrt4bedErcdnUiL1Qtn) <BR>
+**Slides**: [https://docs.google.com/presentation/d/1MjlUJevqnEgdh9xKA_mpHi9gcNNMIR2LdkZ76MxGVQY/edit?usp=sharing](https://docs.google.com/presentation/d/1MjlUJevqnEgdh9xKA_mpHi9gcNNMIR2LdkZ76MxGVQY/edit?usp=sharing) <BR>
 **Colab Notebook links**:
 * Practical Session 1: [https://colab.research.google.com/drive/1VjWng8KeGiW1RnsU6FYriaxAOxkBooXc](https://colab.research.google.com/drive/1VjWng8KeGiW1RnsU6FYriaxAOxkBooXc)
 * Practical Session 2: [https://colab.research.google.com/drive/1dBTSGHZzvt1mErrt4bedErcdnUiL1Qtn](https://colab.research.google.com/drive/1dBTSGHZzvt1mErrt4bedErcdnUiL1Qtn?usp=sharing)
