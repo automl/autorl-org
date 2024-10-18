@@ -22,7 +22,7 @@ The simplicity of this paradigm raises the expectations that RL should be applic
 
 
 # Announcements
-* Theresa Eimer and André Biedenkapp will be giving a series of tutorials on AutoML in September and October:
+* Theresa Eimer and André Biedenkapp will be giving a series of tutorials on AutoRL in September and October:
   * 06.09.24 [AutoML School](https://www.automlschool.org/)
   * 10.09.24 [AutoML'24 Conference](https://2024.automl.cc/?page_id=1575)
   * 18.10.24 [ECAI'24](https://www.ecai2024.eu/programme/tutorials)
