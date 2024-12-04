@@ -16,11 +16,11 @@ This page serves as an overview of André Biedenkapp and Theresa Eimer's tutoria
 Introduction and algorithmic part on AutoRL (60min):
 1. Primer on RL
 2. Why Does AutoRL matter?
-3. The Choice of ALgorithm matters!
+3. The Choice of Algorithm matters!
 5. Properties of AutoRL Hyperparameter Landscapes
 6. Optimizing the Full Pipeline
 7. The Role of Networks
-8. The role of Environments
+8. The role of Environments<BR>
 Q&A
 
 Practical Session I: Visualizing RL Hyperparameter Landscapes (30min)
@@ -34,7 +34,7 @@ Practical guidelines and case study of hyperparameters (45min):
 4. Options for HPO with pros and cons (AC methods, PBT, heuris-
 tics, meta-gradients, etc.)
 5. Hyperparameters and experimental design
-6. Benchmarking (Auto)RL
+6. Benchmarking (Auto)RL<BR>
 Q&A
 
 Practical Session II: Tools for HPO in RL (45min)
