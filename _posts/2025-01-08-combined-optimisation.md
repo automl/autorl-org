@@ -1,5 +1,5 @@
 ---
-title: "Optimising Smarter: Joint Hyperparameter and Reward Shaping in Reinforcement Learning"
+title: "Optimising Smarter: Joint Optimisation of RL Hyperparameters and Reward Shape"
 categories:
   - Blog
 tags:
