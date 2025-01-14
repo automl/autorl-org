@@ -51,7 +51,7 @@ Improving generalization and efficiency in experience replay is another central 
   <img src="/assets/images/blog_2024_retro/image9.png" width="600" />
 </div>
 <div style="text-align: center;">
-  <img src="/assets/images/blog_2024_retro/image2.png" width="600" />
+  <img src="/assets/images/blog_2024_retro/image2.png" width="800" />
 </div>
 <div style="text-align: left; margin-top: 5px;">
 Figures: Genie generates interactive environments and its high-level architecture
@@ -71,7 +71,7 @@ LLMs and VLMs are exciting tools for reward design and policy learning. [GenRL](
 Similarly, [Real-World Offline RL from Vision-Language Model Feedback](https://arxiv.org/abs/2411.05273) by Venkataraman et al. automates reward labeling from suboptimal datasets, and [Online Intrinsic Rewards from LLM Feedback](https://arxiv.org/abs/2410.23022) by Zheng et al. synthesizes dense natural-language-based intrinsic rewards.
 
 <div style="text-align: center;">
-  <img src="/assets/images/blog_2024_retro/image3.png" width="600" />
+  <img src="/assets/images/blog_2024_retro/image3.png" width="800" />
 </div>
 <div style="text-align: left; margin-top: 5px;">
 Figure: GenRL aligns learnt latent models such as DreamerV3 with VLM embeddings to generate rewards for zero-shot generalisation
@@ -86,7 +86,11 @@ In [Adaptive Planning with Generative Models under Uncertainty](https://arxiv.or
 
 The field of AutoRL has made strides in robotics as well. [Online Foundation Model Selection in Robotics](https://arxiv.org/abs/2402.08570) by Li et al. balances cost and performance between open-source and closed-source models, while [Learning Robot Soccer from Egocentric Vision](https://arxiv.org/abs/2405.02425) by Tirumala et al. demonstrates an end-to-end approach for multi-agent policies trained purely from on-board vision, expanding RL’s applicability to complex robotic tasks without privileged information.
 
-Major strides have been made towards developing methods that can work on – TODO
+Foundation models have also made big strides in unsupervised methods for Robotics. 
+[Motivo](https://scontent-dus1-1.xx.fbcdn.net/v/t39.2365-6/469838886_592650273138757_9015533655681330954_n.pdf?_nc_cat=103&ccb=1-7&_nc_sid=3c67a6&_nc_ohc=euzMzWIDZakQ7kNvgEXMidP&_nc_zt=14&_nc_ht=scontent-dus1-1.xx&_nc_gid=Az3ria9XV-bUdia_TDmmpbR&oh=00_AYCD_1Yxnagyuk-RKAlTczj8gA3dQrt09ZgsZ-3z531eag&oe=678B2019) by Tirinzoni et al. introduces a behavioral foundation model that leverages unsupervised reinforcement learning with forward-backward representations and conditional policy regularization to train a humanoid capable of zero-shot whole-body control across tasks like motion tracking, goal-reaching, and reward optimization. 
+[RL Zero: Zero-Shot Language to Behaviors without any Supervision](https://arxiv.org/abs/2412.05718) by Sikchi et al. demonstrates zero-shot policy learning by grounding language commands into behaviors without any supervision. 
+Similarly, [LAPA (Latent Action Pretraining)](https://arxiv.org/pdf/2410.11758) by Ye et al. presents an unsupervised approach for pretraining robotic foundation models on web-scale data.
+By learning discrete latent actions and finetuning on a small set of labeled trajectories, LAPA enables generalization to novel tasks and unseen objects in both simulated and real-world environment.
 
 #### Benchmarks and Frameworks
 
@@ -96,7 +100,7 @@ Lastly, frameworks like [AutoRL X](https://github.com/lorifranke/autorlx) by Fra
 These benchmarks push the boundaries of evaluation and provide clear goals for future research.
 
 <div style="text-align: center;">
-  <img src="/assets/images/blog_2024_retro/image5.png" width="600" />
+  <img src="/assets/images/blog_2024_retro/image5.png" width="800" />
 </div>
 <div style="text-align: left; margin-top: 5px;">
 Figure: Kinetix generates hardware-accelerated physics-based JAX environments to achieve very fast simulation
@@ -118,7 +122,7 @@ page](https://icml.cc/virtual/2024/workshop/29960).
   <img src="/assets/images/blog_2024_retro/image7.png" width="600" />
 </div>
 <div style="text-align: center;">
-  <img src="/assets/images/blog_2024_retro/image1.png" width="600" />
+  <img src="/assets/images/blog_2024_retro/image1.png" width="800" />
 </div>
 <div style="text-align: left; margin-top: 5px;">
 Figures: ARLBench makes AutoRL evaluation easier with a unified architecture, JAX implementations and representative subsets of environments
@@ -133,7 +137,7 @@ Works like [Contextual World Models](https://arxiv.org/abs/2403.10967) by Prasan
 [Towards Enhancing Predictive Representations using Relational Structure in Reinforcement Learning](https://openreview.net/pdf/04dcbd32d123cd5986ede053708d78cd83aa34d6.pdf) by Mohan and Lindauer improve representation learning methods in RL by incorporating relational inductive biases in self-predictive RL.
 
 <div style="text-align: center;">
-  <img src="/assets/images/blog_2024_retro/image8.png" width="600" />
+  <img src="/assets/images/blog_2024_retro/image8.png" width="900" />
 </div>
 <div style="text-align: left; margin-top: 5px;">
 Figure: Our contextual extension to DreamerV3 allows better generalization to OOD contexts including extrapolation and counterfactuals. The figure compares naively concatenating context to our contextual RSSM.
