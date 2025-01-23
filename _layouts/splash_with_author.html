@@ -1,0 +1,56 @@
+---
+layout: default
+---
+{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
+  <div class="page__hero{% if page.header.overlay_color or page.header.overlay_image %} page__hero--overlay{% endif %}" style="{% if page.header.overlay_color %}background-color: {{ page.header.overlay_color | default: 'transparent' }};{% endif %} {% if page.header.overlay_image %}background-image: linear-gradient({{ page.header.overlay_filter }}, {{ page.header.overlay_filter }}), url('{{ page.header.overlay_image | relative_url }}');{% endif %}">
+    <div class="wrapper">
+      {% if page.title %}
+        <h1 id="page-title" class="page__title" itemprop="headline">
+          {{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}
+        </h1>
+      {% endif %}
+
+      {% if page.author_profile %}
+        <div class="author__info">
+          {% if page.author %}
+            {% assign author = site.data.authors[page.author] %}
+          {% else %}
+            {% assign author = site.author %}
+          {% endif %}
+
+          <div class="author__content">
+            <h3 class="author__name" itemprop="name">
+              <i class="fas fa-user author__icon"></i>
+              {% if author.url %}
+                <a href="{{ author.url | relative_url }}" class="author__link">{{ author.name }}</a>
+              {% else %}
+                {{ author.name }}
+              {% endif %}
+            </h3>
+            {% if author.bio and page.show_bio %}
+              <div class="author__bio" itemprop="description">
+                {{ author.bio }}
+              </div>
+            {% endif %}
+            <div class="post__dates">
+              <i class="fas fa-calendar-alt date__icon"></i>
+              {% if page.last_modified_at %}
+                Updated {{ page.last_modified_at | date: "%B %d, %Y" }}
+              {% else %}
+                {{ page.date | date: "%B %d, %Y" }}
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{% endif %}
+
+<div id="main" role="main">
+  <article class="splash" itemscope itemtype="https://schema.org/CreativeWork">
+    <section class="page__content" itemprop="text">
+      {{ content }}
+    </section>
+  </article>
+</div>

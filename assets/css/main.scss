@@ -1,0 +1,68 @@
+---
+---
+
+@import "minimal-mistakes";
+
+.page__hero--overlay {
+  padding: 3em 0;  /* Reduce from default padding */
+
+  .wrapper {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  .page__title {
+    font-size: 1.5em;  /* Reduce title size */
+    margin-bottom: 0.5em;  /* Reduce space below title */
+  }
+
+  .author__info {
+    margin-top: 1em;  /* Reduce space above author info */
+    padding: 0.5em 1em;  /* Reduce padding around author info */
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    display: inline-block;
+  }
+
+  .author__name {
+  margin: 0;
+  color: #fff;
+  font-size: 0.9em;
+
+  .author__icon {
+    margin-right: 0.125em;
+    opacity: 0.8;
+    font-size: 0.8em;
+  }
+
+  .author__link {
+    color: #fff;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+  .author__bio {
+    margin: 0.3em 0 0;  /* Less space above bio */
+    color: #fff;
+    font-size: 0.8em;
+    font-style: italic;
+    opacity: 0.9;
+  }
+
+  .post__dates {
+    color: #fff;
+    font-size: 0.8em;
+    margin-top: 0.3em;
+    opacity: 0.9;
+
+    .date__icon {
+      margin-right: 0.5em;
+      opacity: 0.8;
+      font-size: 0.8em;
+    }
+  }
+}

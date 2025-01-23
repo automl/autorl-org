@@ -1,5 +1,14 @@
 ---
 title: "Optimising Smarter: Joint Optimisation of RL Hyperparameters and Reward Shape"
+layout: splash_with_author
+author: julian
+author_profile: True
+show_date: True
+show_bio: False
+date: 2025-01-08
+header:
+  overlay_color: "#000"
+  overlay_filter: "0.5"
 categories:
   - Blog
 tags:
