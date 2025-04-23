@@ -1,0 +1,353 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>2024 in AutoRL - AutoRL.org</title>
+<meta name="description" content="TL;DR: From integrating RL with VLMs and LLMs to hyperparameter tuning, environment design, and generalization, 2024 was packed with innovation.  We’ve highlighted top advancements in AutoRL and included a selection of our own projects at the end.  Dive in to explore the cutting-edge in RL from the past year!">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="AutoRL.org">
+<meta property="og:title" content="2024 in AutoRL">
+<meta property="og:url" content="http://localhost:4000/blog/retrospective-24/">
+
+
+  <meta property="og:description" content="TL;DR: From integrating RL with VLMs and LLMs to hyperparameter tuning, environment design, and generalization, 2024 was packed with innovation.  We’ve highlighted top advancements in AutoRL and included a selection of our own projects at the end.  Dive in to explore the cutting-edge in RL from the past year!">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2025-01-09T00:00:00+01:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/blog/retrospective-24/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="AutoRL.org Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--splash" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          AutoRL.org
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/about-autorl/"
+                
+                
+              >What is AutoRL?</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/blog/"
+                
+                
+              >Blog</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/dates/"
+                
+                
+              >Dates</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about-us/"
+                
+                
+              >The Team</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/packages/"
+                
+                
+              >Packages</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+<div id="main" role="main">
+  <article class="splash" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="2024 in AutoRL">
+    <meta itemprop="description" content="TL;DR: From integrating RL with VLMs and LLMs to hyperparameter tuning, environment design, and generalization, 2024 was packed with innovation. We’ve highlighted top advancements in AutoRL and included a selection of our own projects at the end. Dive in to explore the cutting-edge in RL from the past year!">
+    <meta itemprop="datePublished" content="2025-01-09T00:00:00+01:00">
+    
+
+    <section class="page__content" itemprop="text">
+      <p>TL;DR: From integrating RL with VLMs and LLMs to hyperparameter tuning, environment design, and generalization, 2024 was packed with innovation. 
+We’ve highlighted top advancements in AutoRL and included a selection of our own projects at the end. 
+Dive in to explore the cutting-edge in RL from the past year!</p>
+
+<h3 id="making-reinforcement-learning-work-out-of-the-box-a-2024-overview">Making Reinforcement Learning Work Out of the Box: A 2024 Overview</h3>
+
+<p>2024 was a big year for RL in general and AutoRL specifically. 
+Here we collect some of our highlights from last year.</p>
+
+<h4 id="automl-for-rl">AutoML for RL</h4>
+
+<p>AutoML for RL remains a key focus area. <a href="https://arxiv.org/abs/2407.01800">Normalization and Effective Learning Rates in RL</a> by Lyle et al. introduces Normalize-and-Project, maintaining consistent learning rates in dynamic environments, particularly useful for long-term training. 
+For hyperparameter tuning, <a href="https://arxiv.org/abs/2404.08233">Generalized PBT</a> by Bai et al. refines Population-Based Training with pairwise learning to better balance exploration and exploitation, making RL algorithms more robust. 
+Meanwhile, <a href="https://arxiv.org/abs/2405.16195">Adaptive Q-Network</a> by Vincent et al. tackles on-the-fly hyperparameter tuning within RL training for improved real-world applicability. 
+In <a href="https://arxiv.org/abs/2410.07170">EVA: Explained Variance Adaptation</a> Paischer et al. optimize initialization strategies to speed up convergence in fine-tuning and improve performance across multiple domains.</p>
+
+<p>Additional work has further examined the performance and consistency of RL hyperparameters in <a href="https://arxiv.org/abs/2310.03882">Small Batch Deep Reinforcement Learning</a> and <a href="https://arxiv.org/abs/2406.17523">On the Consistency of Hyper-parameter Selection in Value-based Deep Reinforcement Learning</a>, both by Obando-Ceron et al.
+Showing that this remains an open challenge limiting the applicability of RL algorithms.</p>
+
+<p>A central challenge in RL is evaluating agent performance and selecting suitable algorithms. 
+<a href="https://www.jair.org/index.php/jair/article/view/15326">Estimating Agent Skill in Continuous Action Domains</a> by Archibald et al. introduces a Bayesian framework to separate decision-making and execution skills for robust, fine-grained assessments. 
+Complementing this, the tool presented in <a href="https://arxiv.org/abs/2407.20917">How to Choose a Reinforcement-Learning Algorithm</a> by Bongratz et al. simplifies algorithm selection by providing an interactive guide that aligns methods with task requirements, further reducing barriers for practitioners. 
+Of course the final step would be to do this automatically. 
+Just in case you’re still looking for research inspiration!</p>
+
+<div style="text-align: center;">
+  <img src="/assets/images/blog_2024_retro/image6.png" width="600" />
+</div>
+<div style="text-align: left; margin-top: 5px;">
+Figure: Partial screenshot of the RL-Picker tool to select an RL agent for your use-case
+</div>
+<p><br /></p>
+
+<p>Improving generalization and efficiency in experience replay is another central theme.
+<a href="https://arxiv.org/abs/2407.09702">Investigating the Interplay of Prioritized Replay and Generalization</a> by Panahi et al. reveals trade-offs in prioritized sampling and proposes mitigations for instability, while <a href="https://arxiv.org/abs/2402.03903">Averaging n-step Returns Reduces Variance in RL</a> by Daley et al. introduces compound returns that enhance sample efficiency without sacrificing performance.</p>
+
+<h4 id="environment-design">Environment Design</h4>
+
+<div style="text-align: center;">
+  <img src="/assets/images/blog_2024_retro/image9.png" width="600" />
+</div>
+<div style="text-align: center;">
+  <img src="/assets/images/blog_2024_retro/image2.png" width="800" />
+</div>
+<div style="text-align: left; margin-top: 5px;">
+Figures: Genie generates interactive environments and its high-level architecture
+</div>
+<p><br /></p>
+
+<p>Environment design and model-based methods are also undergoing rapid transformation. 
+<a href="https://arxiv.org/abs/2402.15391">Genie</a> by Bruce et al. and <a href="https://deepmind.google/discover/blog/genie-2-a-large-scale-foundation-world-model/">Genie 2</a> by Parker-Holder et al. propose generative models that create interactive environments from unlabelled videos, enabling agents to learn diverse behaviors. 
+Bridging pretraining and deployment, <a href="https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/03363.pdf">PreLAR</a> by Zhang et al. introduces action-conditioned pretraining for world models, improving sample efficiency. 
+Meanwhile, <a href="https://eureka-research.github.io/dr-eureka/">DrEureka</a> by Ma et al. harnesses LLMs to automate sim-to-real transfer, <a href="https://arxiv.org/abs/2410.15184">Action Abstractions for Amortized Sampling</a> by Boussif et al. enhances exploration by abstracting high-level actions, <a href="https://arxiv.org/abs/2407.20651">Causality-Guided Self-Adaptive Representations</a> Yang et al. adapts to unseen dynamics via causal learning, and <a href="https://arxiv.org/abs/2409.18382">CurricuLLM</a> by Ryu et al. uses LLMs to design task curricula, accelerating the learning of complex robot skills.</p>
+
+<p>Reward engineering and the offline RL front continue to see impactful innovations. 
+<a href="https://arxiv.org/abs/2405.09999">Reward Centering</a> by Naik et al. stabilizes training by normalizing reward distributions, enhancing consistency across tasks. 
+<a href="https://openreview.net/forum?id=AKU4h6BPG7">Image-Based Dataset Representations for Predicting Learning Performance</a> by Mateos-Meleri et al. leverages convolutional models to predict policy outcomes and guide dataset optimization.</p>
+
+<p>LLMs and VLMs are exciting tools for reward design and policy learning. <a href="https://github.com/SforAiDl/genrl">GenRL</a> aligns VLMs with world models, enabling tasks to be specified through vision and language prompts, improving multi-task generalization. 
+Similarly, <a href="https://arxiv.org/abs/2411.05273">Real-World Offline RL from Vision-Language Model Feedback</a> by Venkataraman et al. automates reward labeling from suboptimal datasets, and <a href="https://arxiv.org/abs/2410.23022">Online Intrinsic Rewards from LLM Feedback</a> by Zheng et al. synthesizes dense natural-language-based intrinsic rewards.</p>
+
+<div style="text-align: center;">
+  <img src="/assets/images/blog_2024_retro/image3.png" width="800" />
+</div>
+<div style="text-align: left; margin-top: 5px;">
+Figure: GenRL aligns learnt latent models such as DreamerV3 with VLM embeddings to generate rewards for zero-shot generalisation
+</div>
+<p><br /></p>
+
+<p>Beyond reward design, LLMs and VLMs reshape how RL agents interact with their environments. 
+<a href="https://arxiv.org/abs/2410.17856">ROCKET-1</a> by Cai et al. employs visual-temporal context prompting to enhance spatial reasoning in open-world tasks, while <a href="https://arxiv.org/abs/2312.02445">LLaRA</a> by Liao et al. uses conversation-style data augmentation to enrich vision-language policy learning for more sophisticated robotic behaviors. 
+In <a href="https://arxiv.org/abs/2408.01510">Adaptive Planning with Generative Models under Uncertainty</a> Jutras-Dubé et al. reduce replanning frequency without compromising performance, making generative models more practical.</p>
+
+<h4 id="robotics">Robotics</h4>
+
+<p>The field of AutoRL has made strides in robotics as well. <a href="https://arxiv.org/abs/2402.08570">Online Foundation Model Selection in Robotics</a> by Li et al. balances cost and performance between open-source and closed-source models, while <a href="https://arxiv.org/abs/2405.02425">Learning Robot Soccer from Egocentric Vision</a> by Tirumala et al. demonstrates an end-to-end approach for multi-agent policies trained purely from on-board vision, expanding RL’s applicability to complex robotic tasks without privileged information.</p>
+
+<p>Foundation models have also made big strides in unsupervised methods for Robotics. 
+<a href="https://scontent-dus1-1.xx.fbcdn.net/v/t39.2365-6/469838886_592650273138757_9015533655681330954_n.pdf?_nc_cat=103&amp;ccb=1-7&amp;_nc_sid=3c67a6&amp;_nc_ohc=euzMzWIDZakQ7kNvgEXMidP&amp;_nc_zt=14&amp;_nc_ht=scontent-dus1-1.xx&amp;_nc_gid=Az3ria9XV-bUdia_TDmmpbR&amp;oh=00_AYCD_1Yxnagyuk-RKAlTczj8gA3dQrt09ZgsZ-3z531eag&amp;oe=678B2019">Motivo</a> by Tirinzoni et al. introduces a behavioral foundation model that leverages unsupervised reinforcement learning with forward-backward representations and conditional policy regularization to train a humanoid capable of zero-shot whole-body control across tasks like motion tracking, goal-reaching, and reward optimization. 
+<a href="https://arxiv.org/abs/2412.05718">RL Zero: Zero-Shot Language to Behaviors without any Supervision</a> by Sikchi et al. demonstrates zero-shot policy learning by grounding language commands into behaviors without any supervision. 
+Similarly, <a href="https://arxiv.org/pdf/2410.11758">LAPA (Latent Action Pretraining)</a> by Ye et al. presents an unsupervised approach for pretraining robotic foundation models on web-scale data.
+By learning discrete latent actions and finetuning on a small set of labeled trajectories, LAPA enables generalization to novel tasks and unseen objects in both simulated and real-world environment.</p>
+
+<h4 id="benchmarks-and-frameworks">Benchmarks and Frameworks</h4>
+
+<p>Benchmarks and frameworks are critical for driving the field forward. <a href="https://github.com/FLAIROx/Kinetix">Kinetix</a> by Matthews et al. introduces a procedurally generated physics-based task space for pretraining generalist RL agents, demonstrating the viability of large-scale pretraining. 
+<a href="https://github.com/balrog-ai/BALROG">BALROG</a> by Paglieri et al. provides a comprehensive benchmark to evaluate LLM and VLM decision-making in dynamic environments, while <a href="https://github.com/THUDM/VisualAgentBench/">VisualAgentBench</a> by Liu et al. focuses on testing multimodal agents in diverse, real-world-inspired scenarios. 
+Lastly, frameworks like <a href="https://github.com/lorifranke/autorlx">AutoRL X</a> by Franke et al. bring RL to the web with a dynamic interface for visualizing and managing RL workflows, improving accessibility and collaboration. 
+These benchmarks push the boundaries of evaluation and provide clear goals for future research.</p>
+
+<div style="text-align: center;">
+  <img src="/assets/images/blog_2024_retro/image5.png" width="800" />
+</div>
+<div style="text-align: left; margin-top: 5px;">
+Figure: Kinetix generates hardware-accelerated physics-based JAX environments to achieve very fast simulation
+</div>
+<p><br /></p>
+
+<h4 id="first-autorl-workshop">First AutoRL Workshop</h4>
+
+<p>A particular highlight of the year was, of course, the first AutoRL workshop at ICML. 
+It hosted a diverse set of great work (see all papers <a href="https://autorlworkshop.github.io/">here</a>), headed by our three best paper award winners <a href="https://arxiv.org/abs/2407.07082">Can Learned Optimization Make Reinforcement Learning Less Difficult?</a> by Goldie et al., <a href="https://icml.cc/virtual/2024/35850">BOFormer: Learning to Solve Multi-Objective Bayesian Optimization via Non-Markovian RL</a> by Hung et al. and <a href="https://arxiv.org/abs/2405.19332">Self-Exploring Language Models: Active Preference Elicitation for Online Alignment</a> by Zhang et al.. 
+Furthermore, we had great invited talks by Chelsea Finn, Roberta Raileanu, Pierluca D’Oro, Michael Dennis and Pablo Samuel Castro on everything from RL for robotics, in-context RL, AI-assisted agent design, learning interactive environments and the ALE as a benchmark for AutoRL. 
+The videos are publicly available on <a href="https://icml.cc/virtual/2024/workshop/29960">the ICML workshop
+page</a>.</p>
+
+<h4 id="our-work">Our Work</h4>
+
+<div style="text-align: center;">
+  <img src="/assets/images/blog_2024_retro/image7.png" width="600" />
+</div>
+<div style="text-align: center;">
+  <img src="/assets/images/blog_2024_retro/image1.png" width="800" />
+</div>
+<div style="text-align: left; margin-top: 5px;">
+Figures: ARLBench makes AutoRL evaluation easier with a unified architecture, JAX implementations and representative subsets of environments
+</div>
+<p><br /></p>
+
+<p>Of course, AutoRL.org itself has not been idle. Our own work this year includes <a href="https://openreview.net/forum?id=MlB61zPAeR">HPO-RL-Bench</a> by Shala et al. and <a href="https://arxiv.org/abs/2409.18827">ARLBench</a> by Becktepe et al., two benchmarks for hyperparameter optimization based on tabular performance data and rapid execution respectively. 
+Combined, they make benchmarking HPO for RL less computationally expensive. 
+Dierkes et al. show the benefits of joint optimization for these critical components in <a href="https://arxiv.org/abs/2406.18293">Combining Automated Optimisation of Hyperparameters and Reward Shape</a>. 
+Works like <a href="https://arxiv.org/abs/2403.10967">Contextual World Models</a> by Prasanna et al. and <a href="https://arxiv.org/abs/2404.09521">Inferring Behavior-Specific Context Improves ZeroShot Generalization in Reinforcement Learning</a> by Camaret et al. expand our understanding of generalization and how context can improve it. 
+<a href="https://arxiv.org/abs/2409.14084">One-shot World Models Using a Transformer Trained on a Synthetic Prior</a> by Ferreira et al. shows that prior-fitted networks can be used as in-context world models while <a href="https://arxiv.org/abs/2402.06402">Hierarchical Transformers are Efficient Meta-Reinforcement Learners</a> Shala et al. use in-context learning to adapt to unseen tasks. 
+<a href="https://openreview.net/pdf/04dcbd32d123cd5986ede053708d78cd83aa34d6.pdf">Towards Enhancing Predictive Representations using Relational Structure in Reinforcement Learning</a> by Mohan and Lindauer improve representation learning methods in RL by incorporating relational inductive biases in self-predictive RL.</p>
+
+<div style="text-align: center;">
+  <img src="/assets/images/blog_2024_retro/image8.png" width="900" />
+</div>
+<div style="text-align: left; margin-top: 5px;">
+Figure: Our contextual extension to DreamerV3 allows better generalization to OOD contexts including extrapolation and counterfactuals. The figure compares naively concatenating context to our contextual RSSM.
+</div>
+<p><br /></p>
+
+<p>Overall, this has been a very successful year on many fronts: our understanding of how to train RL algorithms increased, integration of foundation models particularly for environment design has made incredible progress and AutoRL is moving forwards both in terms of methods and benchmarking. We’re excited to see what 2025 will bring!</p>
+
+    </section>
+  </article>
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2025 <a href="http://localhost:4000">AutoRL.org</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>

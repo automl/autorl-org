@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-04-22T15:19:39+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">AutoRL.org</title><subtitle>AutoRL aims to make RL applicable out of the box by using AutoML and Meta-Learning to make it more efficient, robust and general. AutoRL.org provides an overview of the state of AutoRL.</subtitle><entry><title type="html">2024 in AutoRL</title><link href="http://localhost:4000/blog/retrospective-24/" rel="alternate" type="text/html" title="2024 in AutoRL" /><published>2025-01-09T00:00:00+01:00</published><updated>2025-01-09T00:00:00+01:00</updated><id>http://localhost:4000/blog/retrospective-24</id><content type="html" xml:base="http://localhost:4000/blog/retrospective-24/"><![CDATA[<p>TL;DR: From integrating RL with VLMs and LLMs to hyperparameter tuning, environment design, and generalization, 2024 was packed with innovation. 
+We’ve highlighted top advancements in AutoRL and included a selection of our own projects at the end. 
+Dive in to explore the cutting-edge in RL from the past year!</p>
+
+<h3 id="making-reinforcement-learning-work-out-of-the-box-a-2024-overview">Making Reinforcement Learning Work Out of the Box: A 2024 Overview</h3>
+
+<p>2024 was a big year for RL in general and AutoRL specifically. 
+Here we collect some of our highlights from last year.</p>
+
+<h4 id="automl-for-rl">AutoML for RL</h4>
+
+<p>AutoML for RL remains a key focus area. <a href="https://arxiv.org/abs/2407.01800">Normalization and Effective Learning Rates in RL</a> by Lyle et al. introduces Normalize-and-Project, maintaining consistent learning rates in dynamic environments, particularly useful for long-term training. 
+For hyperparameter tuning, <a href="https://arxiv.org/abs/2404.08233">Generalized PBT</a> by Bai et al. refines Population-Based Training with pairwise learning to better balance exploration and exploitation, making RL algorithms more robust. 
+Meanwhile, <a href="https://arxiv.org/abs/2405.16195">Adaptive Q-Network</a> by Vincent et al. tackles on-the-fly hyperparameter tuning within RL training for improved real-world applicability. 
+In <a href="https://arxiv.org/abs/2410.07170">EVA: Explained Variance Adaptation</a> Paischer et al. optimize initialization strategies to speed up convergence in fine-tuning and improve performance across multiple domains.</p>
+
+<p>Additional work has further examined the performance and consistency of RL hyperparameters in <a href="https://arxiv.org/abs/2310.03882">Small Batch Deep Reinforcement Learning</a> and <a href="https://arxiv.org/abs/2406.17523">On the Consistency of Hyper-parameter Selection in Value-based Deep Reinforcement Learning</a>, both by Obando-Ceron et al.
+Showing that this remains an open challenge limiting the applicability of RL algorithms.</p>
+
+<p>A central challenge in RL is evaluating agent performance and selecting suitable algorithms. 
+<a href="https://www.jair.org/index.php/jair/article/view/15326">Estimating Agent Skill in Continuous Action Domains</a> by Archibald et al. introduces a Bayesian framework to separate decision-making and execution skills for robust, fine-grained assessments. 
+Complementing this, the tool presented in <a href="https://arxiv.org/abs/2407.20917">How to Choose a Reinforcement-Learning Algorithm</a> by Bongratz et al. simplifies algorithm selection by providing an interactive guide that aligns methods with task requirements, further reducing barriers for practitioners. 
+Of course the final step would be to do this automatically. 
+Just in case you’re still looking for research inspiration!</p>
+
+<div style="text-align: center;">
+  <img src="/assets/images/blog_2024_retro/image6.png" width="600" />
+</div>
+<div style="text-align: left; margin-top: 5px;">
+Figure: Partial screenshot of the RL-Picker tool to select an RL agent for your use-case
+</div>
+<p><br /></p>
+
+<p>Improving generalization and efficiency in experience replay is another central theme.
+<a href="https://arxiv.org/abs/2407.09702">Investigating the Interplay of Prioritized Replay and Generalization</a> by Panahi et al. reveals trade-offs in prioritized sampling and proposes mitigations for instability, while <a href="https://arxiv.org/abs/2402.03903">Averaging n-step Returns Reduces Variance in RL</a> by Daley et al. introduces compound returns that enhance sample efficiency without sacrificing performance.</p>
+
+<h4 id="environment-design">Environment Design</h4>
+
+<div style="text-align: center;">
+  <img src="/assets/images/blog_2024_retro/image9.png" width="600" />
+</div>
+<div style="text-align: center;">
+  <img src="/assets/images/blog_2024_retro/image2.png" width="800" />
+</div>
+<div style="text-align: left; margin-top: 5px;">
+Figures: Genie generates interactive environments and its high-level architecture
+</div>
+<p><br /></p>
+
+<p>Environment design and model-based methods are also undergoing rapid transformation. 
+<a href="https://arxiv.org/abs/2402.15391">Genie</a> by Bruce et al. and <a href="https://deepmind.google/discover/blog/genie-2-a-large-scale-foundation-world-model/">Genie 2</a> by Parker-Holder et al. propose generative models that create interactive environments from unlabelled videos, enabling agents to learn diverse behaviors. 
+Bridging pretraining and deployment, <a href="https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/03363.pdf">PreLAR</a> by Zhang et al. introduces action-conditioned pretraining for world models, improving sample efficiency. 
+Meanwhile, <a href="https://eureka-research.github.io/dr-eureka/">DrEureka</a> by Ma et al. harnesses LLMs to automate sim-to-real transfer, <a href="https://arxiv.org/abs/2410.15184">Action Abstractions for Amortized Sampling</a> by Boussif et al. enhances exploration by abstracting high-level actions, <a href="https://arxiv.org/abs/2407.20651">Causality-Guided Self-Adaptive Representations</a> Yang et al. adapts to unseen dynamics via causal learning, and <a href="https://arxiv.org/abs/2409.18382">CurricuLLM</a> by Ryu et al. uses LLMs to design task curricula, accelerating the learning of complex robot skills.</p>
+
+<p>Reward engineering and the offline RL front continue to see impactful innovations. 
+<a href="https://arxiv.org/abs/2405.09999">Reward Centering</a> by Naik et al. stabilizes training by normalizing reward distributions, enhancing consistency across tasks. 
+<a href="https://openreview.net/forum?id=AKU4h6BPG7">Image-Based Dataset Representations for Predicting Learning Performance</a> by Mateos-Meleri et al. leverages convolutional models to predict policy outcomes and guide dataset optimization.</p>
+
+<p>LLMs and VLMs are exciting tools for reward design and policy learning. <a href="https://github.com/SforAiDl/genrl">GenRL</a> aligns VLMs with world models, enabling tasks to be specified through vision and language prompts, improving multi-task generalization. 
+Similarly, <a href="https://arxiv.org/abs/2411.05273">Real-World Offline RL from Vision-Language Model Feedback</a> by Venkataraman et al. automates reward labeling from suboptimal datasets, and <a href="https://arxiv.org/abs/2410.23022">Online Intrinsic Rewards from LLM Feedback</a> by Zheng et al. synthesizes dense natural-language-based intrinsic rewards.</p>
+
+<div style="text-align: center;">
+  <img src="/assets/images/blog_2024_retro/image3.png" width="800" />
+</div>
+<div style="text-align: left; margin-top: 5px;">
+Figure: GenRL aligns learnt latent models such as DreamerV3 with VLM embeddings to generate rewards for zero-shot generalisation
+</div>
+<p><br /></p>
+
+<p>Beyond reward design, LLMs and VLMs reshape how RL agents interact with their environments. 
+<a href="https://arxiv.org/abs/2410.17856">ROCKET-1</a> by Cai et al. employs visual-temporal context prompting to enhance spatial reasoning in open-world tasks, while <a href="https://arxiv.org/abs/2312.02445">LLaRA</a> by Liao et al. uses conversation-style data augmentation to enrich vision-language policy learning for more sophisticated robotic behaviors. 
+In <a href="https://arxiv.org/abs/2408.01510">Adaptive Planning with Generative Models under Uncertainty</a> Jutras-Dubé et al. reduce replanning frequency without compromising performance, making generative models more practical.</p>
+
+<h4 id="robotics">Robotics</h4>
+
+<p>The field of AutoRL has made strides in robotics as well. <a href="https://arxiv.org/abs/2402.08570">Online Foundation Model Selection in Robotics</a> by Li et al. balances cost and performance between open-source and closed-source models, while <a href="https://arxiv.org/abs/2405.02425">Learning Robot Soccer from Egocentric Vision</a> by Tirumala et al. demonstrates an end-to-end approach for multi-agent policies trained purely from on-board vision, expanding RL’s applicability to complex robotic tasks without privileged information.</p>
+
+<p>Foundation models have also made big strides in unsupervised methods for Robotics. 
+<a href="https://scontent-dus1-1.xx.fbcdn.net/v/t39.2365-6/469838886_592650273138757_9015533655681330954_n.pdf?_nc_cat=103&amp;ccb=1-7&amp;_nc_sid=3c67a6&amp;_nc_ohc=euzMzWIDZakQ7kNvgEXMidP&amp;_nc_zt=14&amp;_nc_ht=scontent-dus1-1.xx&amp;_nc_gid=Az3ria9XV-bUdia_TDmmpbR&amp;oh=00_AYCD_1Yxnagyuk-RKAlTczj8gA3dQrt09ZgsZ-3z531eag&amp;oe=678B2019">Motivo</a> by Tirinzoni et al. introduces a behavioral foundation model that leverages unsupervised reinforcement learning with forward-backward representations and conditional policy regularization to train a humanoid capable of zero-shot whole-body control across tasks like motion tracking, goal-reaching, and reward optimization. 
+<a href="https://arxiv.org/abs/2412.05718">RL Zero: Zero-Shot Language to Behaviors without any Supervision</a> by Sikchi et al. demonstrates zero-shot policy learning by grounding language commands into behaviors without any supervision. 
+Similarly, <a href="https://arxiv.org/pdf/2410.11758">LAPA (Latent Action Pretraining)</a> by Ye et al. presents an unsupervised approach for pretraining robotic foundation models on web-scale data.
+By learning discrete latent actions and finetuning on a small set of labeled trajectories, LAPA enables generalization to novel tasks and unseen objects in both simulated and real-world environment.</p>
+
+<h4 id="benchmarks-and-frameworks">Benchmarks and Frameworks</h4>
+
+<p>Benchmarks and frameworks are critical for driving the field forward. <a href="https://github.com/FLAIROx/Kinetix">Kinetix</a> by Matthews et al. introduces a procedurally generated physics-based task space for pretraining generalist RL agents, demonstrating the viability of large-scale pretraining. 
+<a href="https://github.com/balrog-ai/BALROG">BALROG</a> by Paglieri et al. provides a comprehensive benchmark to evaluate LLM and VLM decision-making in dynamic environments, while <a href="https://github.com/THUDM/VisualAgentBench/">VisualAgentBench</a> by Liu et al. focuses on testing multimodal agents in diverse, real-world-inspired scenarios. 
+Lastly, frameworks like <a href="https://github.com/lorifranke/autorlx">AutoRL X</a> by Franke et al. bring RL to the web with a dynamic interface for visualizing and managing RL workflows, improving accessibility and collaboration. 
+These benchmarks push the boundaries of evaluation and provide clear goals for future research.</p>
+
+<div style="text-align: center;">
+  <img src="/assets/images/blog_2024_retro/image5.png" width="800" />
+</div>
+<div style="text-align: left; margin-top: 5px;">
+Figure: Kinetix generates hardware-accelerated physics-based JAX environments to achieve very fast simulation
+</div>
+<p><br /></p>
+
+<h4 id="first-autorl-workshop">First AutoRL Workshop</h4>
+
+<p>A particular highlight of the year was, of course, the first AutoRL workshop at ICML. 
+It hosted a diverse set of great work (see all papers <a href="https://autorlworkshop.github.io/">here</a>), headed by our three best paper award winners <a href="https://arxiv.org/abs/2407.07082">Can Learned Optimization Make Reinforcement Learning Less Difficult?</a> by Goldie et al., <a href="https://icml.cc/virtual/2024/35850">BOFormer: Learning to Solve Multi-Objective Bayesian Optimization via Non-Markovian RL</a> by Hung et al. and <a href="https://arxiv.org/abs/2405.19332">Self-Exploring Language Models: Active Preference Elicitation for Online Alignment</a> by Zhang et al.. 
+Furthermore, we had great invited talks by Chelsea Finn, Roberta Raileanu, Pierluca D’Oro, Michael Dennis and Pablo Samuel Castro on everything from RL for robotics, in-context RL, AI-assisted agent design, learning interactive environments and the ALE as a benchmark for AutoRL. 
+The videos are publicly available on <a href="https://icml.cc/virtual/2024/workshop/29960">the ICML workshop
+page</a>.</p>
+
+<h4 id="our-work">Our Work</h4>
+
+<div style="text-align: center;">
+  <img src="/assets/images/blog_2024_retro/image7.png" width="600" />
+</div>
+<div style="text-align: center;">
+  <img src="/assets/images/blog_2024_retro/image1.png" width="800" />
+</div>
+<div style="text-align: left; margin-top: 5px;">
+Figures: ARLBench makes AutoRL evaluation easier with a unified architecture, JAX implementations and representative subsets of environments
+</div>
+<p><br /></p>
+
+<p>Of course, AutoRL.org itself has not been idle. Our own work this year includes <a href="https://openreview.net/forum?id=MlB61zPAeR">HPO-RL-Bench</a> by Shala et al. and <a href="https://arxiv.org/abs/2409.18827">ARLBench</a> by Becktepe et al., two benchmarks for hyperparameter optimization based on tabular performance data and rapid execution respectively. 
+Combined, they make benchmarking HPO for RL less computationally expensive. 
+Dierkes et al. show the benefits of joint optimization for these critical components in <a href="https://arxiv.org/abs/2406.18293">Combining Automated Optimisation of Hyperparameters and Reward Shape</a>. 
+Works like <a href="https://arxiv.org/abs/2403.10967">Contextual World Models</a> by Prasanna et al. and <a href="https://arxiv.org/abs/2404.09521">Inferring Behavior-Specific Context Improves ZeroShot Generalization in Reinforcement Learning</a> by Camaret et al. expand our understanding of generalization and how context can improve it. 
+<a href="https://arxiv.org/abs/2409.14084">One-shot World Models Using a Transformer Trained on a Synthetic Prior</a> by Ferreira et al. shows that prior-fitted networks can be used as in-context world models while <a href="https://arxiv.org/abs/2402.06402">Hierarchical Transformers are Efficient Meta-Reinforcement Learners</a> Shala et al. use in-context learning to adapt to unseen tasks. 
+<a href="https://openreview.net/pdf/04dcbd32d123cd5986ede053708d78cd83aa34d6.pdf">Towards Enhancing Predictive Representations using Relational Structure in Reinforcement Learning</a> by Mohan and Lindauer improve representation learning methods in RL by incorporating relational inductive biases in self-predictive RL.</p>
+
+<div style="text-align: center;">
+  <img src="/assets/images/blog_2024_retro/image8.png" width="900" />
+</div>
+<div style="text-align: left; margin-top: 5px;">
+Figure: Our contextual extension to DreamerV3 allows better generalization to OOD contexts including extrapolation and counterfactuals. The figure compares naively concatenating context to our contextual RSSM.
+</div>
+<p><br /></p>
+
+<p>Overall, this has been a very successful year on many fronts: our understanding of how to train RL algorithms increased, integration of foundation models particularly for environment design has made incredible progress and AutoRL is moving forwards both in terms of methods and benchmarking. We’re excited to see what 2025 will bring!</p>]]></content><author><name></name></author><category term="Blog" /><category term="Review" /><category term="2024" /><summary type="html"><![CDATA[TL;DR: From integrating RL with VLMs and LLMs to hyperparameter tuning, environment design, and generalization, 2024 was packed with innovation. We’ve highlighted top advancements in AutoRL and included a selection of our own projects at the end. Dive in to explore the cutting-edge in RL from the past year!]]></summary></entry><entry><title type="html">Optimising Smarter: Joint Optimisation of RL Hyperparameters and Reward Shape</title><link href="http://localhost:4000/blog/combined-optimisation/" rel="alternate" type="text/html" title="Optimising Smarter: Joint Optimisation of RL Hyperparameters and Reward Shape" /><published>2025-01-08T00:00:00+01:00</published><updated>2025-01-08T00:00:00+01:00</updated><id>http://localhost:4000/blog/combined-optimisation</id><content type="html" xml:base="http://localhost:4000/blog/combined-optimisation/"><![CDATA[<script type="text/javascript" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+<p>TL;DR: Jointly optimising hyperparameters and reward shapes in RL outperforms separate tuning, delivering better performance and stability, even in complex environments like Robosuite Wipe. No hand-tuning required!</p>
+
+<h3 id="optimising-smarter-joint-optimisation-of-rl-hyperparameters-and-reward-shape">Optimising Smarter: Joint Optimisation of RL Hyperparameters and Reward Shape</h3>
+
+<p>RL has achieved remarkable advancements, but one basic challenge remains ever-present: tuning hyperparameters and reward functions.
+This is tedious yet critical and can determine the success or failure of an RL algorithm.
+Traditionally, these two components are optimised independently, and in benchmark environments, reward functions are often left untuned altogether.
+This raises the question: is the tuning of hyperparameters and reward shapes truly independent?</p>
+
+<p>In our work, <em>Combining Automated Optimisation of Hyperparameters and Reward Shape</em> (Dierkes et al. 2024), we demonstrated that they actually are dependent and achieving optimal RL performance requires tuning both components together.
+This challenges the conventional approaches and calls for more unified optimisation frameworks.</p>
+
+<h4 id="interdependency-between-hyperparameters-and-reward-parameters">Interdependency between Hyperparameters and Reward Parameters</h4>
+
+<p>To better understand the interdependence of hyperparameters and reward shapes, we conducted experiments training the PPO algorithm on LunarLander.
+Specifically, we performed an exhaustive grid search over various hyperparameter values and reward weights in the reward function, analysing how each pair influenced training performance.</p>
+
+<p>These findings are visualised in Figure 1, depicting the complex relationships between hyperparameters and reward weights.
+For instance, the distance weight reveals a non-convex region where successful training parameters emerge and further, performance can vary across the whole search space.
+Meanwhile, the velocity weights can have sharp boundaries that clearly separate regions of success from complete failure, showing the balance required for effective tuning. 
+While our analysis was limited to pairwise combinations, it is reasonable to expect even stronger dependencies in higher-dimensional parameter spaces.</p>
+
+<div style="text-align: center;">
+  <img src="/assets/images/combined_optimisation_2024/heatmap_matrix_rewmin.png" width="600" height="600" />
+</div>
+<div style="text-align: left; margin-top: 5px;">
+  Figure 1: Landscapes depicting the average return on Gymnasium LunarLander for pairwise hyperparameter and reward parameters over ten PPO trainings.
+  Lower values (lighter) correspond to faster landing time and, thus, better performance. The yellow lines mark the default values for each parameter.
+  The blue line denotes the best-performing hyperparameter value for each specific reward value. The black dots mark the incumbent configurations found in the later joint optimisation experiments.
+</div>
+<p><br /></p>
+
+<p>Hyperparameters and reward weights are therefore intricately linked, and their joint optimisation is important for achieving the best possible performance in RL applications.
+Independent optimisation approaches fail to capture these interdependencies, leaving potential performance gains unexplored.</p>
+
+<h4 id="joint-optimisation-in-practice">Joint Optimisation in Practice</h4>
+
+<p>Recognising these interdependencies, the next step was to design a practical optimisation approach.
+Our goal was to examine a method that could seamlessly integrate with existing black-box hyperparameter optimisation workflows while jointly optimising reward weights.</p>
+
+<p>Figure 2 provides an overview of our optimisation loop. In this framework:</p>
+<ol>
+  <li>Both hyperparameters \(\theta\) of the RL algorithm as well as scale \(\alpha\) and weights \(w\) of the reward shape are treated as part of a unified search space.</li>
+  <li>The optimisation algorithm evaluates configurations by training the RL agent with hyperparameters \(\theta\) on the reward shaped environment \(\mathcal{M}_{\alpha, w}\).
+The it measures its external task performance \(\mathcal{O}_{\text{goal}}(\pi)\), a simple and sparse objective function to measure final policy performance (e.g. time of a successful landing in LunarLander).</li>
+  <li>Promising configurations are iteratively refined, enabling joint optimisation of both components.</li>
+</ol>
+
+<div style="text-align: center;">
+  <img src="/assets/images/combined_optimisation_2024/optimisation_loop.png" style="max-width: 400px; height: auto;" />
+</div>
+<div style="text-align: left; margin-top: 5px;">
+  Figure 2: Illustration of the two-level optimisation process.
+  Outer loop: hyperparameter and reward parameter optimisation; inner loop: RL training.
+  In each iteration, the parameter optimiser chooses parameters and receives their performance measured by \(\mathcal{O}_{\text{goal}}(\pi)\).
+</div>
+<p><br /></p>
+
+<p>We used the DEHB (Differential Evolution with Hyperband, Noor et al. 2021) algorithm for this purpose, a state-of-the-art multi-fidelity black-box optimiser.
+However, the approach is general and can be easily applied to other black-box optimisation methods (e.g. SMAC or Optuna).</p>
+
+<p>In our experiments, we compared the joint optimisation of hyperparameters and reward weights (requiring no hand-tuning!) with two alternative approaches:</p>
+
+<ol>
+  <li>Optimising only the hyperparameters while using a competitive, pre-defined reward shape.</li>
+  <li>Optimising only the reward weights while keeping the hyperparameters fixed at competitive baseline values.</li>
+</ol>
+
+<p>In the paper, we used the PPO and SAC algorithms across four environments: LunarLander, Google Brax Ant, Google Brax Humanoid, and Robosuite Wipe.
+Among these, Robosuite Wipe stands out as a complex, underexplored environment with a challenging reward structure, making it an excellent testbed for evaluating the generalisability of our approach.</p>
+
+<p>We tested two optimisation strategies:</p>
+
+<ol>
+  <li>Single-objective optimisation, which focuses solely on maximising performance.</li>
+  <li>Multi-objective optimisation, which balances performance and stability by optimising the performance minus the policy’s standard deviation.</li>
+</ol>
+
+<p>The SAC results, as summarised in Figure 3, demonstrated that joint optimisation consistently matched or outperformed the hand-tuned baselines.
+In simpler environments like LunarLander and Ant, joint optimisation reliably recovered baseline performance without requiring any manual tuning.
+In more challenging environments, such as Humanoid and Wipe, joint optimisation went a step further, yielding superior performance.
+For instance, in the Wipe environment, the method achieved a reward score close to the theoretical maximum of 141, showing its ability to handle complex reward structures and extract maximum potential from the task.</p>
+
+<div style="text-align: center;">
+  <img src="/assets/images/combined_optimisation_2024/performance.png" style="max-width: 100%; height: auto;" />
+</div>
+<div style="text-align: left; margin-top: 5px;">
+    Figure 3: Boxplots for the SAC optimisation of five median performances of each experiment’s optimisation runs. 
+    The CV[%] measures the stability of a policy via the coefficient of variance (smaller is
+    better).
+</div>
+<p><br /></p>
+
+<p>The multi-objective optimisation further enhanced the utility of joint optimisation by improving the stability of the learned policies.
+While maintaining a similar level of average performance, this approach significantly reduced the variance in performance across training runs in many cases.
+Such consistency is crucial for real-world applications, where reliable policy behaviour can be as important as achieving peak performance.</p>
+
+<p>Finally, we found that joint optimisation comes with minimal computational overhead, meaning its benefits are essentially free!</p>
+
+<h4 id="implications-and-future-directions">Implications and Future Directions</h4>
+
+<p>Our findings have broad implications for RL research and applications:</p>
+
+<ol>
+  <li><strong>Unified Optimisation:</strong> Hyperparameters and reward shapes should always be optimised jointly to account for their interdependencies.</li>
+  <li><strong>Practicality:</strong> Our approach integrates easily into existing optimisation pipelines and scales effectively to new environments.</li>
+  <li><strong>Generalisability:</strong> The method is robust across diverse benchmarks, including less-studied environments like Wipe, making it suitable for real-world applications.</li>
+</ol>
+
+<p>Future research needs to extend this work by exploring more sophisticated reward function transformations and investigating the trade-off between performance and stability in RL training.</p>
+
+<p>More information about this work and implementation details can be found in the paper’s GitHub repository <a href="https://github.com/ADA-research/combined_hpo_and_reward_shaping">here</a> and the paper <a href="https://arxiv.org/abs/2406.18293">here</a>.</p>]]></content><author><name>Julian Dierkes</name></author><category term="Blog" /><category term="Paper" /><category term="2024" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Dreaming of Many Worlds: Learning Contextual World Models Aids Zero-Shot Generalization</title><link href="http://localhost:4000/blog/contextdreamer-automllink/" rel="alternate" type="text/html" title="Dreaming of Many Worlds: Learning Contextual World Models Aids Zero-Shot Generalization" /><published>2024-09-29T00:00:00+02:00</published><updated>2024-09-29T00:00:00+02:00</updated><id>http://localhost:4000/blog/contextdreamer-automllink</id><content type="html" xml:base="http://localhost:4000/blog/contextdreamer-automllink/"><![CDATA[<p>TL;DR: A new contextual world-model that helps to generalize better to new scenarios by understanding contextual factors like robot mass or strength. This contextual Dreamer outperforms existing approaches in both familiar and unfamiliar situations.</p>]]></content><author><name></name></author><category term="Blog" /><category term="link" /><category term="AutoML.org" /><summary type="html"><![CDATA[TL;DR: A new contextual world-model that helps to generalize better to new scenarios by understanding contextual factors like robot mass or strength. This contextual Dreamer outperforms existing approaches in both familiar and unfamiliar situations.]]></summary></entry><entry><title type="html">AutoRL Workshop at ICML 2024, Vienna</title><link href="http://localhost:4000/blog/autorl-workshop/" rel="alternate" type="text/html" title="AutoRL Workshop at ICML 2024, Vienna" /><published>2024-04-01T00:00:00+02:00</published><updated>2024-04-01T00:00:00+02:00</updated><id>http://localhost:4000/blog/autorl-workshop</id><content type="html" xml:base="http://localhost:4000/blog/autorl-workshop/"><![CDATA[<h1 id="announcing-the-autorl-workshop-at-icml-2024-vienna">Announcing the AutoRL workshop at ICML 2024, Vienna</h1>
+
+<p>We are excited to announce that the first AutoRL workshop was accepted at ICML to be held in Vienna this year. The <a href="https://autorlworkshop.github.io/">workshop website</a> contains more details. 
+The workshops page for ICML is <a href="https://icml.cc/virtual/2024/events/workshop">here</a> and the AutoRL workshop page on the ICML website can be found <a href="https://icml.cc/virtual/2024/workshop/29960">here</a></p>
+
+<p>Our goal is to bring together people working in different corners of this problem to share their expertise, methods and ideas. We are looking forward to cutting-edge and state-of-the-art submissions from the community.</p>
+
+<p>We also have cool speakers and some discussions planned, so mark your calendars (26 or 27 July) and stay tuned!</p>
+
+<p>Come discuss with us how to make RL work out of the box, be it via meta-learning, AutoML, LLMs or whatever else you can think of! 🚀 See you in Vienna!</p>]]></content><author><name></name></author><category term="Blog" /><category term="Workshop" /><category term="2024" /><summary type="html"><![CDATA[Announcing the AutoRL workshop at ICML 2024, Vienna]]></summary></entry><entry><title type="html">2023 in AutoRL</title><link href="http://localhost:4000/blog/retrospective/" rel="alternate" type="text/html" title="2023 in AutoRL" /><published>2024-01-10T00:00:00+01:00</published><updated>2024-01-10T00:00:00+01:00</updated><id>http://localhost:4000/blog/retrospective</id><content type="html" xml:base="http://localhost:4000/blog/retrospective/"><![CDATA[<p>TL;DR: From combining RL with LLMs through more efficient MetaRL and updates in an environment design to classic hyperparameter optimization, these are some of our top picks, plus a selection of our own AutoRL projects at the end of this post. So sit back and enjoy some of the most interesting AutoRL papers of 2023.</p>
+
+<h3 id="2023-in-autorl">2023 in AutoRL</h3>
+
+<p><br /></p>
+<center>
+  <img src="/assets/images/blog_2023_retro/GPT_generated.jpg" alt="GPT-generated image depicting AutoRL" height="500" width="500" />
+  <br />
+  GPT-generated image depicting AutoRL
+</center>
+<p><br /></p>
+
+<p>What a year 2023 has been in machine learning! Beyond the obvious explosion in LLM capability, it was also a great year for all things AutoRL. From combining RL with LLMs through more efficient MetaRL and updates in an environment design to classic hyperparameter optimization, these are some of our top picks, plus a selection of our own AutoRL projects at the end of this post. So sit back and enjoy some of the most interesting AutoRL papers of 2023.</p>
+
+<h4 id="llms-and-more-in-rl">LLMs and more in RL</h4>
+
+<p>Language models have been on everyone’s mind this last year, and with good reason. So it’s only natural to try and use the capabilities of LLMs as common sense or reasoning models to support RL. LLMs have successfully been used as policies and curriculum generation mechanisms in <em>Voyager</em> <a href="https://voyager.minedojo.org/">[Wang et al., ArXiv]</a>, but also for finding expressive rewards signals in robotics (<em>Eureka</em> [<a href="https://eureka-research.github.io/">Ma et al., ArXiv</a>]) and exploration environments like MiniHack (<em>Motif</em> [<a href="https://arxiv.org/abs/2310.00166">Klissarov et al., ALOE@NeurIPS</a>]).</p>
+
+<p><br /></p>
+<center>
+  <img src="/assets/images/blog_2023_retro/voyager.png" />
+  <br />
+  Key components of the Voyager LLM-based agent. Image credit: <a href="https://voyager.minedojo.org/"><em>Voyager</em> paper</a>
+</center>
+<p><br /></p>
+
+<p><em>Agents</em> <a href="https://arxiv.org/abs/2309.07870">[Zhou et al., ArXiv]</a> is a user-friendly library that enables non-specialists to build state-of-the-art autonomous language agents without much coding. <em>Generative Agents</em> <a href="https://arxiv.org/abs/2304.03442">[Park et al., ArXiv]</a> introduces architectural and interaction patterns that fuse LLMs with computational software agents that simulate believable human behaviour in a sandbox.</p>
+
+<p><br /></p>
+<center>
+  <img src="/assets/images/blog_2023_retro/agents_framework.png" />
+  <br />
+  An overview of the Agents framework. Image credit: <a href="https://arxiv.org/abs/2309.07870"><em>Agents</em> paper</a>
+</center>
+<p><br /></p>
+
+<p>Robotics had some eye-catching works this year. <a href="https://arxiv.org/abs/2307.15818">[Brohan et al., ArXiv]</a> trained <em>Robotic Transformer 2</em> (RT-2), a vision-language-action (VLA) model based on vision-language models (VLMs), that can plan from both image and text commands. <a href="https://arxiv.org/abs/2310.16828">[Hansen et al., ArXiv]</a> (<em>TD-MPC2</em>) train multi-task agents with world models that scale up with model size (up to 319M) on continuous control tasks with a single set of hyperparameters.</p>
+
+<h4 id="meta-rl">Meta-RL</h4>
+
+<p>The Meta-RL year started off strong with an excellent survey on the field in January [<a href="https://arxiv.org/abs/2301.08028">Beck et al., ArXiv</a>]. It is a great resource on different Meta-RL paradigms and the work that has been done in this domain.</p>
+
+<p>A big topic in Meta-RL this year was learning RL algorithms - unlike the approaches often used in the past, however, this year, in-context RL was the dominant idea for learning RL. From <em>AdA,</em> which showed rapid in-context adaptation to new task variations [<a href="https://arxiv.org/abs/2301.07608">Bauer et al., ICML</a>], to learning an RL algorithm from supervised pre-training (<em>DPT</em>) [<a href="https://arxiv.org/pdf/2306.14892.pdf">Lee et al., ArXiv</a>] or adapting to new tasks [<a href="https://arxiv.org/pdf/2312.03801.pdf">Chandra et al., FMDM@NeurIPS</a>] in-context, this seems to be a promising future direction for meta-learned RL algorithms.</p>
+
+<center>
+  <img src="/assets/images/blog_2023_retro/ada.png" />
+  <br />
+  In-context adaption with AdA. Image credit: <a href="https://arxiv.org/abs/2301.07608"><em>AdA</em> paper</a>
+</center>
+<p><br /></p>
+
+<h4 id="environment-design">Environment Design</h4>
+
+<p>Generating challenging training environments and curricula has continued to be an important AutoRL topic in 2023. <a href="https://arxiv.org/abs/2309.11489">[Xie et al., ArXiv]</a> automatically generate dense reward functions using LLMs. Similarly, <a href="https://arxiv.org/abs/2310.10021">[Zhang et al., CoRL 2023]</a> learn to solve long-horizon tasks zero-shot by growing a library of learned skills with supervision by LLMs.</p>
+
+<p>In curriculum generation, <a href="https://ojs.aaai.org/index.php/ICAPS/article/view/27235">[Bajaj et al., ICAPS 2023]</a> combine learning from demonstrations and curriculum learning to perform Automated Curriculum Learning from Demonstrations on sparse reward tasks. <a href="https://arxiv.org/pdf/2303.03376.pdf">[Samvelyan et al., ICLR 2023]</a> apply environment design to the multi-agent setting while keeping the abilities of other agents in mind in <em>MAESTRO</em>. Meanwhile, [<a href="https://arxiv.org/pdf/2310.02782.pdf">Jackson et al., NeurIPS 2023</a>] show that curricula are not only useful for learning policies but also in learning better RL algorithms.</p>
+
+<center>
+  <img src="/assets/images/blog_2023_retro/vec2rew.png" />
+  <br />
+  Reward generation using Text2Reward. Image credit: <a href="https://arxiv.org/abs/2309.11489"><em>Text2Reward</em> paper</a>
+</center>
+<p><br /></p>
+
+<h4 id="rl-hyperparameters">RL Hyperparameters</h4>
+
+<p><a href="https://arxiv.org/abs/2310.16686">[Beukmann et al., NeurIPS 2023]</a> generalise to new transition dynamics using a hypernetwork that generates the weights of an adapter module that conditions the behaviour of an agent on the environment context. <a href="https://arxiv.org/abs/2302.01470">[Lan et al., ArXiv]</a> train an adaptive optimizer with inductive biases to generalise on learning rate control from toy tasks to complex Brax tasks. <a href="https://arxiv.org/abs/2306.07741">[Sabbioni et al., ArXiv]</a> meta-learn setting the learning rate adaptively for sampled contextual test tasks.</p>
+
+<p><a href="https://proceedings.mlr.press/v202/yuan23c/yuan23c.pdf">[Yuan et al., ICML 2023]</a> use a multi-armed bandit formulation, dubbed Automatic Intrinsic Reward Shaping, to select between different exploration strategies on MiniGrid, Procgen, and DeepMind Control Suite. This could be a promising strategy for dynamic Algorithm Selection in RL.</p>
+
+<center>
+  <img src="/assets/images/blog_2023_retro/reward_selection.png" />
+  <br />
+  Intrinsic reward selection via UCB. Image credit: <a href="https://proceedings.mlr.press/v202/yuan23c/yuan23c.pdf"><em>Automatic Instrinsic Reward Shaping</em> paper</a>
+</center>
+<p><br /></p>
+
+<h4 id="benchmarks--libraries">Benchmarks &amp; Libraries</h4>
+
+<p><a href="https://proceedings.mlr.press/v202/aitchison23a/aitchison23a.pdf">[Aitchison et al., ICML]</a> Atari-5 selects a representative subset of 5 of 57 Atari games that can be used to predict median performance on all 57 games within 10% of the true value. Since a lot of (Auto)RL research is conducted on variations of the ALE, this could make such work much more efficient to run.</p>
+
+<p>The same goes for the JAXification of RL – while benchmarks like <a href="https://github.com/corl-team/xland-minigrid">XLand</a> and <a href="https://github.com/FLAIROx/JaxMARL">JaxMARL</a> as well as training libraries like <a href="https://github.com/luchris429/purejaxrl">PureJAX</a> aren’t directly targeted at AutoRL, they certainly make AutoRL research much more accessible.</p>
+
+<p>On the side of new AutoRL focus libraries, <a href="https://github.com/facebookresearch/minimax">minimax</a> and <a href="https://github.com/RyanNavillus/Syllabus">Syllabus</a> both aim to make curriculum learning faster, easier to implement, and more comparable. They take slightly different approaches, though: while Syllabus offers a way of implementing the curriculum that works with different base algorithms (their examples include CleanRL and RLLib), minimax uses its own PPO implementation to keep evaluations directly comparable. Together they should cover most curriculum generation use cases, hopefully bringing a bit more standardisation to the field.</p>
+
+<center>
+  <img src="/assets/images/blog_2023_retro/purejax.png" />
+  <br />
+  Speedups with PureJAX. Image credit: <a href="https://github.com/luchris429/purejaxrl">PureJAX repo</a>
+</center>
+<p><br /></p>
+
+<h4 id="autorlorg-projects">AutoRL.org Projects</h4>
+
+<center>
+  <img src="/assets/images/blog_2023_retro/mdp_playground.png" />
+  <br />
+  Testing robustness against reward delay in DQNs on Atari. Image credit: <a href="https://jair.org/index.php/jair/article/view/14314">MDP Playground paper</a>
+</center>
+<p><br /></p>
+
+<p>Of course, we weren’t idle throughout the year either. One important topic was benchmarking this year, as you can see in “<a href="https://jair.org/index.php/jair/article/view/14314">MDP Playground: An Analysis and Debug Testbed for Reinforcement Learning</a>” [Rajan et al., JAIR]. MDP Playground lets you define properties of MDPs, including delayed rewards, stochasticity, image representations, time unit, action range, and more to unit test your algorithms on toy MDPs or test its robustness on standard complex MDPs such as Atari and Mujoco using Gym wrappers.</p>
+
+<center>
+  <img src="/assets/images/blog_2023_retro/hps_in_rl.png" height="682" width="543" />
+  <br />
+  Hand tuning compared to automatic HPO in RL. Image credit: <a href="https://arxiv.org/abs/2306.01324">HPs in RL paper</a>
+</center>
+<p><br /></p>
+
+<p>On the hyperparameter side of things, we go back to the basics in “Hyperparameters in Reinforcement Learning and How To Tune Them”<a href="https://arxiv.org/abs/2306.01324"> [Eimer et al., ICML]</a> for an investigation into how hard HPO for RL actually is and which existing tools work well for it. We show that automated HPO tools can give us similar results to grid searches for less than 10x the compute and propose best practices of how to incorporate HPO into experiments and reporting for more reproducible RL research. Further, “Gray-Box Gaussian Processes for Automated Reinforcement Learning” <a href="https://openreview.net/forum?id=rmoMvptXK7M">[Shala et al., ICLR]</a> discusses how to fuse hyperparameter configurations, reward-curve information, as well as optimization budgets to perform efficient bayesian optimization specifically for AutoRL.</p>
+
+<center>
+  <img src="/assets/images/blog_2023_retro/grey_box_gps.png" />
+  <br />
+  Improvement of Grey-Box GPs on PPO compared to PBT variations. Image credit: <a href="https://openreview.net/forum?id=rmoMvptXK7M">Grey-Box GP paper</a>
+</center>
+<p><br /></p>
+
+<p>Going beyond that, in “AutoRL Hyperparameter Landscapes” <a href="https://arxiv.org/pdf/2304.02396.pdf">[Mohan et al., AutoML]</a>, we examine the relationship between hyperparameters, performance, and training time: how important are hyperparameter schedules in RL? We analyze this using landscape analysis across different types of hyperparameters (discounting, learning speed, and exploration) and agents (value-based and policy-based) and observe that the optimal regions of hyperparameters change as the agent trains, reaffirming the need for prioritising dynamic hyperparameter adaptations in RL.</p>
+
+<center>
+  <img src="/assets/images/blog_2023_retro/landscapes.png" />
+  <br />
+  Development of optimal learning rate and discount factor values for SAC over time. Image credit: <a href="https://arxiv.org/pdf/2304.02396.pdf">RL Landscapes paper</a>
+</center>
+<p><br /></p>
+
+<p>On the topic of different kinds of learning objectives in Meta-RL and AutoRL, we unify diverse methodologies in Meta-RL and AutoRL under a design-pattern-oriented framework in <a href="https://arxiv.org/pdf/2306.16021.pdf">[Mohan et al., 2023]</a> highlighting the crucial role of structural integration in learning processes. Adding Structured RL into our research toolkit promises to enhance our understanding and capabilities in Meta-RL and Auto-RL significantly.</p>
+
+<center>
+  <img src="/assets/images/blog_2023_retro/structure.png" />
+  <br />
+  Overview of how to incorporate structure into RL. Image credit: <a href="https://arxiv.org/pdf/2306.16021.pdf">Structure in RL paper</a>
+</center>
+<p><br /></p>
+
+<p>These are our best of 2023 – what have we missed, what are your highlights? Hopefully, 2024 can give us a similarly diverse range of exciting AutoRL research &amp; software. Apart from the usual suspects, the <a href="https://rl-conference.cc/">RL conference</a> with its first edition as well as <a href="https://lifelong-ml.cc/">COLLAs</a> and the <a href="https://2024.automl.cc/">AutoML-Conf</a> with their fourth and third editions respectively are likely venues for great AutoRL work in the coming year. So happy New Year and happy researching!</p>]]></content><author><name></name></author><category term="Blog" /><category term="Review" /><category term="2023" /><summary type="html"><![CDATA[TL;DR: From combining RL with LLMs through more efficient MetaRL and updates in an environment design to classic hyperparameter optimization, these are some of our top picks, plus a selection of our own AutoRL projects at the end of this post. So sit back and enjoy some of the most interesting AutoRL papers of 2023.]]></summary></entry><entry><title type="html">Hyperparameter Tuning in Reinforcement Learning is Easy, Actually</title><link href="http://localhost:4000/blog/hpoinrl-automllink/" rel="alternate" type="text/html" title="Hyperparameter Tuning in Reinforcement Learning is Easy, Actually" /><published>2023-06-05T00:00:00+02:00</published><updated>2023-06-05T00:00:00+02:00</updated><id>http://localhost:4000/blog/hpoinrl-automllink</id><content type="html" xml:base="http://localhost:4000/blog/hpoinrl-automllink/"><![CDATA[<p>TL;DR: Hyperparameter Optimization tools perform well on Reinforcement Learning, outperforming Grid Searches with less than 10% of the budget. If not reported correctly, however, all hyperparameter tuning can heavily skew future comparisons.</p>]]></content><author><name></name></author><category term="Blog" /><category term="link" /><category term="AutoML.org" /><summary type="html"><![CDATA[TL;DR: Hyperparameter Optimization tools perform well on Reinforcement Learning, outperforming Grid Searches with less than 10% of the budget. If not reported correctly, however, all hyperparameter tuning can heavily skew future comparisons.]]></summary></entry><entry><title type="html">Contextualize Me – The Case for Context in Reinforcement Learning</title><link href="http://localhost:4000/blog/contextualizeme-automllink/" rel="alternate" type="text/html" title="Contextualize Me – The Case for Context in Reinforcement Learning" /><published>2023-06-05T00:00:00+02:00</published><updated>2023-06-05T00:00:00+02:00</updated><id>http://localhost:4000/blog/contextualizeme-automllink</id><content type="html" xml:base="http://localhost:4000/blog/contextualizeme-automllink/"><![CDATA[<p>TL;DR: We can model and investigate generalization in RL with contextual RL and our benchmark library CARL. In theory, without adding context we cannot achieve optimal performance and in the experiments we saw that using context information can indeed be beneficial – context matters!</p>]]></content><author><name></name></author><category term="Blog" /><category term="link" /><category term="AutoML.org" /><summary type="html"><![CDATA[TL;DR: We can model and investigate generalization in RL with contextual RL and our benchmark library CARL. In theory, without adding context we cannot achieve optimal performance and in the experiments we saw that using context information can indeed be beneficial – context matters!]]></summary></entry><entry><title type="html">Understanding AutoRL Hyperparameter Landscapes</title><link href="http://localhost:4000/blog/landscapes-automllink/" rel="alternate" type="text/html" title="Understanding AutoRL Hyperparameter Landscapes" /><published>2023-05-31T00:00:00+02:00</published><updated>2023-05-31T00:00:00+02:00</updated><id>http://localhost:4000/blog/landscapes-automllink</id><content type="html" xml:base="http://localhost:4000/blog/landscapes-automllink/"><![CDATA[<p>TL;DR: We investigate hyperparameters in RL by building landscapes of algorithm performance for different hyperparameter values at different stages of training. Using these landscapes we empirically demonstrate that adjusting hyperparameters during training can improve performance, which opens up new avenues to build better dynamic optimizers for RL.</p>]]></content><author><name></name></author><category term="Blog" /><category term="link" /><category term="AutoML.org" /><summary type="html"><![CDATA[TL;DR: We investigate hyperparameters in RL by building landscapes of algorithm performance for different hyperparameter values at different stages of training. Using these landscapes we empirically demonstrate that adjusting hyperparameters during training can improve performance, which opens up new avenues to build better dynamic optimizers for RL.]]></summary></entry><entry><title type="html">TempoRL - Learning When to Act</title><link href="http://localhost:4000/blog/ztemporl-andrelink/" rel="alternate" type="text/html" title="TempoRL - Learning When to Act" /><published>2022-05-22T00:00:00+02:00</published><updated>2022-05-22T00:00:00+02:00</updated><id>http://localhost:4000/blog/ztemporl-andrelink</id><content type="html" xml:base="http://localhost:4000/blog/ztemporl-andrelink/"><![CDATA[<p>TL;DR: Jointly learning when and how to act improves sample efficiency of RL agents through better exploration and improved exploitation.</p>]]></content><author><name></name></author><category term="Blog" /><category term="link" /><category term="demo" /><summary type="html"><![CDATA[TL;DR: Jointly learning when and how to act improves sample efficiency of RL agents through better exploration and improved exploitation.]]></summary></entry><entry><title type="html">Theory-Inspired Parameter Control Benchmarks for DAC</title><link href="http://localhost:4000/blog/theodac-andrelink/" rel="alternate" type="text/html" title="Theory-Inspired Parameter Control Benchmarks for DAC" /><published>2022-05-22T00:00:00+02:00</published><updated>2022-05-22T00:00:00+02:00</updated><id>http://localhost:4000/blog/theodac-andrelink</id><content type="html" xml:base="http://localhost:4000/blog/theodac-andrelink/"><![CDATA[<p>TL;DR: New toy benchmarks enable better study of RL agents performance and allows us to compare against ground truth optimal policies.</p>]]></content><author><name></name></author><category term="Blog" /><category term="link" /><category term="demo" /><summary type="html"><![CDATA[TL;DR: New toy benchmarks enable better study of RL agents performance and allows us to compare against ground truth optimal policies.]]></summary></entry></feed>

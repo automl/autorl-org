@@ -1,0 +1,357 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>2023 in AutoRL - AutoRL.org</title>
+<meta name="description" content="TL;DR: From combining RL with LLMs through more efficient MetaRL and updates in an environment design to classic hyperparameter optimization, these are some of our top picks, plus a selection of our own AutoRL projects at the end of this post. So sit back and enjoy some of the most interesting AutoRL papers of 2023.">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="AutoRL.org">
+<meta property="og:title" content="2023 in AutoRL">
+<meta property="og:url" content="http://localhost:4000/blog/retrospective/">
+
+
+  <meta property="og:description" content="TL;DR: From combining RL with LLMs through more efficient MetaRL and updates in an environment design to classic hyperparameter optimization, these are some of our top picks, plus a selection of our own AutoRL projects at the end of this post. So sit back and enjoy some of the most interesting AutoRL papers of 2023.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2024-01-10T00:00:00+01:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/blog/retrospective/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="AutoRL.org Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--splash" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          AutoRL.org
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/about-autorl/"
+                
+                
+              >What is AutoRL?</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/blog/"
+                
+                
+              >Blog</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/dates/"
+                
+                
+              >Dates</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about-us/"
+                
+                
+              >The Team</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/packages/"
+                
+                
+              >Packages</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+<div id="main" role="main">
+  <article class="splash" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="2023 in AutoRL">
+    <meta itemprop="description" content="TL;DR: From combining RL with LLMs through more efficient MetaRL and updates in an environment design to classic hyperparameter optimization, these are some of our top picks, plus a selection of our own AutoRL projects at the end of this post. So sit back and enjoy some of the most interesting AutoRL papers of 2023.">
+    <meta itemprop="datePublished" content="2024-01-10T00:00:00+01:00">
+    
+
+    <section class="page__content" itemprop="text">
+      <p>TL;DR: From combining RL with LLMs through more efficient MetaRL and updates in an environment design to classic hyperparameter optimization, these are some of our top picks, plus a selection of our own AutoRL projects at the end of this post. So sit back and enjoy some of the most interesting AutoRL papers of 2023.</p>
+
+<h3 id="2023-in-autorl">2023 in AutoRL</h3>
+
+<p><br /></p>
+<center>
+  <img src="/assets/images/blog_2023_retro/GPT_generated.jpg" alt="GPT-generated image depicting AutoRL" height="500" width="500" />
+  <br />
+  GPT-generated image depicting AutoRL
+</center>
+<p><br /></p>
+
+<p>What a year 2023 has been in machine learning! Beyond the obvious explosion in LLM capability, it was also a great year for all things AutoRL. From combining RL with LLMs through more efficient MetaRL and updates in an environment design to classic hyperparameter optimization, these are some of our top picks, plus a selection of our own AutoRL projects at the end of this post. So sit back and enjoy some of the most interesting AutoRL papers of 2023.</p>
+
+<h4 id="llms-and-more-in-rl">LLMs and more in RL</h4>
+
+<p>Language models have been on everyone’s mind this last year, and with good reason. So it’s only natural to try and use the capabilities of LLMs as common sense or reasoning models to support RL. LLMs have successfully been used as policies and curriculum generation mechanisms in <em>Voyager</em> <a href="https://voyager.minedojo.org/">[Wang et al., ArXiv]</a>, but also for finding expressive rewards signals in robotics (<em>Eureka</em> [<a href="https://eureka-research.github.io/">Ma et al., ArXiv</a>]) and exploration environments like MiniHack (<em>Motif</em> [<a href="https://arxiv.org/abs/2310.00166">Klissarov et al., ALOE@NeurIPS</a>]).</p>
+
+<p><br /></p>
+<center>
+  <img src="/assets/images/blog_2023_retro/voyager.png" />
+  <br />
+  Key components of the Voyager LLM-based agent. Image credit: <a href="https://voyager.minedojo.org/"><em>Voyager</em> paper</a>
+</center>
+<p><br /></p>
+
+<p><em>Agents</em> <a href="https://arxiv.org/abs/2309.07870">[Zhou et al., ArXiv]</a> is a user-friendly library that enables non-specialists to build state-of-the-art autonomous language agents without much coding. <em>Generative Agents</em> <a href="https://arxiv.org/abs/2304.03442">[Park et al., ArXiv]</a> introduces architectural and interaction patterns that fuse LLMs with computational software agents that simulate believable human behaviour in a sandbox.</p>
+
+<p><br /></p>
+<center>
+  <img src="/assets/images/blog_2023_retro/agents_framework.png" />
+  <br />
+  An overview of the Agents framework. Image credit: <a href="https://arxiv.org/abs/2309.07870"><em>Agents</em> paper</a>
+</center>
+<p><br /></p>
+
+<p>Robotics had some eye-catching works this year. <a href="https://arxiv.org/abs/2307.15818">[Brohan et al., ArXiv]</a> trained <em>Robotic Transformer 2</em> (RT-2), a vision-language-action (VLA) model based on vision-language models (VLMs), that can plan from both image and text commands. <a href="https://arxiv.org/abs/2310.16828">[Hansen et al., ArXiv]</a> (<em>TD-MPC2</em>) train multi-task agents with world models that scale up with model size (up to 319M) on continuous control tasks with a single set of hyperparameters.</p>
+
+<h4 id="meta-rl">Meta-RL</h4>
+
+<p>The Meta-RL year started off strong with an excellent survey on the field in January [<a href="https://arxiv.org/abs/2301.08028">Beck et al., ArXiv</a>]. It is a great resource on different Meta-RL paradigms and the work that has been done in this domain.</p>
+
+<p>A big topic in Meta-RL this year was learning RL algorithms - unlike the approaches often used in the past, however, this year, in-context RL was the dominant idea for learning RL. From <em>AdA,</em> which showed rapid in-context adaptation to new task variations [<a href="https://arxiv.org/abs/2301.07608">Bauer et al., ICML</a>], to learning an RL algorithm from supervised pre-training (<em>DPT</em>) [<a href="https://arxiv.org/pdf/2306.14892.pdf">Lee et al., ArXiv</a>] or adapting to new tasks [<a href="https://arxiv.org/pdf/2312.03801.pdf">Chandra et al., FMDM@NeurIPS</a>] in-context, this seems to be a promising future direction for meta-learned RL algorithms.</p>
+
+<center>
+  <img src="/assets/images/blog_2023_retro/ada.png" />
+  <br />
+  In-context adaption with AdA. Image credit: <a href="https://arxiv.org/abs/2301.07608"><em>AdA</em> paper</a>
+</center>
+<p><br /></p>
+
+<h4 id="environment-design">Environment Design</h4>
+
+<p>Generating challenging training environments and curricula has continued to be an important AutoRL topic in 2023. <a href="https://arxiv.org/abs/2309.11489">[Xie et al., ArXiv]</a> automatically generate dense reward functions using LLMs. Similarly, <a href="https://arxiv.org/abs/2310.10021">[Zhang et al., CoRL 2023]</a> learn to solve long-horizon tasks zero-shot by growing a library of learned skills with supervision by LLMs.</p>
+
+<p>In curriculum generation, <a href="https://ojs.aaai.org/index.php/ICAPS/article/view/27235">[Bajaj et al., ICAPS 2023]</a> combine learning from demonstrations and curriculum learning to perform Automated Curriculum Learning from Demonstrations on sparse reward tasks. <a href="https://arxiv.org/pdf/2303.03376.pdf">[Samvelyan et al., ICLR 2023]</a> apply environment design to the multi-agent setting while keeping the abilities of other agents in mind in <em>MAESTRO</em>. Meanwhile, [<a href="https://arxiv.org/pdf/2310.02782.pdf">Jackson et al., NeurIPS 2023</a>] show that curricula are not only useful for learning policies but also in learning better RL algorithms.</p>
+
+<center>
+  <img src="/assets/images/blog_2023_retro/vec2rew.png" />
+  <br />
+  Reward generation using Text2Reward. Image credit: <a href="https://arxiv.org/abs/2309.11489"><em>Text2Reward</em> paper</a>
+</center>
+<p><br /></p>
+
+<h4 id="rl-hyperparameters">RL Hyperparameters</h4>
+
+<p><a href="https://arxiv.org/abs/2310.16686">[Beukmann et al., NeurIPS 2023]</a> generalise to new transition dynamics using a hypernetwork that generates the weights of an adapter module that conditions the behaviour of an agent on the environment context. <a href="https://arxiv.org/abs/2302.01470">[Lan et al., ArXiv]</a> train an adaptive optimizer with inductive biases to generalise on learning rate control from toy tasks to complex Brax tasks. <a href="https://arxiv.org/abs/2306.07741">[Sabbioni et al., ArXiv]</a> meta-learn setting the learning rate adaptively for sampled contextual test tasks.</p>
+
+<p><a href="https://proceedings.mlr.press/v202/yuan23c/yuan23c.pdf">[Yuan et al., ICML 2023]</a> use a multi-armed bandit formulation, dubbed Automatic Intrinsic Reward Shaping, to select between different exploration strategies on MiniGrid, Procgen, and DeepMind Control Suite. This could be a promising strategy for dynamic Algorithm Selection in RL.</p>
+
+<center>
+  <img src="/assets/images/blog_2023_retro/reward_selection.png" />
+  <br />
+  Intrinsic reward selection via UCB. Image credit: <a href="https://proceedings.mlr.press/v202/yuan23c/yuan23c.pdf"><em>Automatic Instrinsic Reward Shaping</em> paper</a>
+</center>
+<p><br /></p>
+
+<h4 id="benchmarks--libraries">Benchmarks &amp; Libraries</h4>
+
+<p><a href="https://proceedings.mlr.press/v202/aitchison23a/aitchison23a.pdf">[Aitchison et al., ICML]</a> Atari-5 selects a representative subset of 5 of 57 Atari games that can be used to predict median performance on all 57 games within 10% of the true value. Since a lot of (Auto)RL research is conducted on variations of the ALE, this could make such work much more efficient to run.</p>
+
+<p>The same goes for the JAXification of RL – while benchmarks like <a href="https://github.com/corl-team/xland-minigrid">XLand</a> and <a href="https://github.com/FLAIROx/JaxMARL">JaxMARL</a> as well as training libraries like <a href="https://github.com/luchris429/purejaxrl">PureJAX</a> aren’t directly targeted at AutoRL, they certainly make AutoRL research much more accessible.</p>
+
+<p>On the side of new AutoRL focus libraries, <a href="https://github.com/facebookresearch/minimax">minimax</a> and <a href="https://github.com/RyanNavillus/Syllabus">Syllabus</a> both aim to make curriculum learning faster, easier to implement, and more comparable. They take slightly different approaches, though: while Syllabus offers a way of implementing the curriculum that works with different base algorithms (their examples include CleanRL and RLLib), minimax uses its own PPO implementation to keep evaluations directly comparable. Together they should cover most curriculum generation use cases, hopefully bringing a bit more standardisation to the field.</p>
+
+<center>
+  <img src="/assets/images/blog_2023_retro/purejax.png" />
+  <br />
+  Speedups with PureJAX. Image credit: <a href="https://github.com/luchris429/purejaxrl">PureJAX repo</a>
+</center>
+<p><br /></p>
+
+<h4 id="autorlorg-projects">AutoRL.org Projects</h4>
+
+<center>
+  <img src="/assets/images/blog_2023_retro/mdp_playground.png" />
+  <br />
+  Testing robustness against reward delay in DQNs on Atari. Image credit: <a href="https://jair.org/index.php/jair/article/view/14314">MDP Playground paper</a>
+</center>
+<p><br /></p>
+
+<p>Of course, we weren’t idle throughout the year either. One important topic was benchmarking this year, as you can see in “<a href="https://jair.org/index.php/jair/article/view/14314">MDP Playground: An Analysis and Debug Testbed for Reinforcement Learning</a>” [Rajan et al., JAIR]. MDP Playground lets you define properties of MDPs, including delayed rewards, stochasticity, image representations, time unit, action range, and more to unit test your algorithms on toy MDPs or test its robustness on standard complex MDPs such as Atari and Mujoco using Gym wrappers.</p>
+
+<center>
+  <img src="/assets/images/blog_2023_retro/hps_in_rl.png" height="682" width="543" />
+  <br />
+  Hand tuning compared to automatic HPO in RL. Image credit: <a href="https://arxiv.org/abs/2306.01324">HPs in RL paper</a>
+</center>
+<p><br /></p>
+
+<p>On the hyperparameter side of things, we go back to the basics in “Hyperparameters in Reinforcement Learning and How To Tune Them”<a href="https://arxiv.org/abs/2306.01324"> [Eimer et al., ICML]</a> for an investigation into how hard HPO for RL actually is and which existing tools work well for it. We show that automated HPO tools can give us similar results to grid searches for less than 10x the compute and propose best practices of how to incorporate HPO into experiments and reporting for more reproducible RL research. Further, “Gray-Box Gaussian Processes for Automated Reinforcement Learning” <a href="https://openreview.net/forum?id=rmoMvptXK7M">[Shala et al., ICLR]</a> discusses how to fuse hyperparameter configurations, reward-curve information, as well as optimization budgets to perform efficient bayesian optimization specifically for AutoRL.</p>
+
+<center>
+  <img src="/assets/images/blog_2023_retro/grey_box_gps.png" />
+  <br />
+  Improvement of Grey-Box GPs on PPO compared to PBT variations. Image credit: <a href="https://openreview.net/forum?id=rmoMvptXK7M">Grey-Box GP paper</a>
+</center>
+<p><br /></p>
+
+<p>Going beyond that, in “AutoRL Hyperparameter Landscapes” <a href="https://arxiv.org/pdf/2304.02396.pdf">[Mohan et al., AutoML]</a>, we examine the relationship between hyperparameters, performance, and training time: how important are hyperparameter schedules in RL? We analyze this using landscape analysis across different types of hyperparameters (discounting, learning speed, and exploration) and agents (value-based and policy-based) and observe that the optimal regions of hyperparameters change as the agent trains, reaffirming the need for prioritising dynamic hyperparameter adaptations in RL.</p>
+
+<center>
+  <img src="/assets/images/blog_2023_retro/landscapes.png" />
+  <br />
+  Development of optimal learning rate and discount factor values for SAC over time. Image credit: <a href="https://arxiv.org/pdf/2304.02396.pdf">RL Landscapes paper</a>
+</center>
+<p><br /></p>
+
+<p>On the topic of different kinds of learning objectives in Meta-RL and AutoRL, we unify diverse methodologies in Meta-RL and AutoRL under a design-pattern-oriented framework in <a href="https://arxiv.org/pdf/2306.16021.pdf">[Mohan et al., 2023]</a> highlighting the crucial role of structural integration in learning processes. Adding Structured RL into our research toolkit promises to enhance our understanding and capabilities in Meta-RL and Auto-RL significantly.</p>
+
+<center>
+  <img src="/assets/images/blog_2023_retro/structure.png" />
+  <br />
+  Overview of how to incorporate structure into RL. Image credit: <a href="https://arxiv.org/pdf/2306.16021.pdf">Structure in RL paper</a>
+</center>
+<p><br /></p>
+
+<p>These are our best of 2023 – what have we missed, what are your highlights? Hopefully, 2024 can give us a similarly diverse range of exciting AutoRL research &amp; software. Apart from the usual suspects, the <a href="https://rl-conference.cc/">RL conference</a> with its first edition as well as <a href="https://lifelong-ml.cc/">COLLAs</a> and the <a href="https://2024.automl.cc/">AutoML-Conf</a> with their fourth and third editions respectively are likely venues for great AutoRL work in the coming year. So happy New Year and happy researching!</p>
+
+
+    </section>
+  </article>
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2025 <a href="http://localhost:4000">AutoRL.org</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>

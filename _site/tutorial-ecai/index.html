@@ -1,0 +1,262 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>AutoRL Tutorial 2024 - AutoRL.org</title>
+<meta name="description" content="AutoRL aims to make RL applicable out of the box by using AutoML and Meta-Learning to make it more efficient, robust and general. AutoRL.org provides an overview of the state of AutoRL.">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="AutoRL.org">
+<meta property="og:title" content="AutoRL Tutorial 2024">
+<meta property="og:url" content="http://localhost:4000/tutorial-ecai/">
+
+
+  <meta property="og:description" content="AutoRL aims to make RL applicable out of the box by using AutoML and Meta-Learning to make it more efficient, robust and general. AutoRL.org provides an overview of the state of AutoRL.">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/tutorial-ecai/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="AutoRL.org Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--splash" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          AutoRL.org
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/about-autorl/"
+                
+                
+              >What is AutoRL?</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/blog/"
+                
+                
+              >Blog</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/dates/"
+                
+                
+              >Dates</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about-us/"
+                
+                
+              >The Team</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/packages/"
+                
+                
+              >Packages</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+<div id="main" role="main">
+  <article class="splash" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="AutoRL Tutorial 2024">
+    
+    
+    
+
+    <section class="page__content" itemprop="text">
+      <p><strong>Slides</strong>: <a href="https://docs.google.com/presentation/d/1MjlUJevqnEgdh9xKA_mpHi9gcNNMIR2LdkZ76MxGVQY/edit?usp=sharing">https://docs.google.com/presentation/d/1MjlUJevqnEgdh9xKA_mpHi9gcNNMIR2LdkZ76MxGVQY/edit?usp=sharing</a> <br />
+<strong>Colab Notebook links</strong>:</p>
+<ul>
+  <li>Practical Session 1: <a href="https://colab.research.google.com/drive/1VjWng8KeGiW1RnsU6FYriaxAOxkBooXc">https://colab.research.google.com/drive/1VjWng8KeGiW1RnsU6FYriaxAOxkBooXc</a></li>
+  <li>Practical Session 2: <a href="https://colab.research.google.com/drive/1dBTSGHZzvt1mErrt4bedErcdnUiL1Qtn?usp=sharing">https://colab.research.google.com/drive/1dBTSGHZzvt1mErrt4bedErcdnUiL1Qtn</a></li>
+</ul>
+
+<h1 id="beyond-trial--error-a-tutorial-on-automated-reinforcement-learning">Beyond Trial &amp; Error: A Tutorial on Automated Reinforcement Learning</h1>
+
+<p>This page serves as an overview of André Biedenkapp and Theresa Eimer’s tutorial on AutoRL at ECAI 2024</p>
+<h3 id="outline">Outline</h3>
+<p>Introduction and algorithmic part on AutoRL (60min):</p>
+<ol>
+  <li>Primer on RL</li>
+  <li>Why Does AutoRL matter?</li>
+  <li>The Choice of Algorithm matters!</li>
+  <li>Properties of AutoRL Hyperparameter Landscapes</li>
+  <li>Optimizing the Full Pipeline</li>
+  <li>The Role of Networks</li>
+  <li>The role of Environments<br />
+Q&amp;A</li>
+</ol>
+
+<p>Practical Session I: Visualizing RL Hyperparameter Landscapes (30min)</p>
+
+<p>Coffee Break (30min)</p>
+
+<p>Practical guidelines and case study of hyperparameters (45min):</p>
+<ol>
+  <li>Examples of successful AutoRL DAC and online approaches</li>
+  <li>Combining AutoRL Approaches</li>
+  <li>Evaluation and Generalization of AutoRL</li>
+  <li>Options for HPO with pros and cons (AC methods, PBT, heuris-
+tics, meta-gradients, etc.)</li>
+  <li>Hyperparameters and experimental design</li>
+  <li>Benchmarking (Auto)RL<br />
+Q&amp;A</li>
+</ol>
+
+<p>Practical Session II: Tools for HPO in RL (45min)</p>
+
+<h3 id="speakers">Speakers</h3>
+<p><strong>Theresa Eimer</strong> is a Ph.D. student at the Leibniz University of Hannover focusing on the intersection of AutoML and Reinforcement Learning. Her goal is to make Reinforcement Learning work out of the box through better generalization and automatic configuration.</p>
+
+<p><strong>André Biedenkapp</strong> is a Postdoctoral Fellow at the University of Freiburg focusing on dynamic configuration with and for deep reinforcement learning.
+With his work, he aims to democratize deep reinforcement learning.</p>
+
+    </section>
+  </article>
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2025 <a href="http://localhost:4000">AutoRL.org</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>

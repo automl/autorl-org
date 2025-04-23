@@ -7,3 +7,5 @@ main:
     url: /dates/
   - title: "The Team"
     url: /about-us/
+  - title: "Packages"
+    url: /packages/

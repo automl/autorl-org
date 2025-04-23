@@ -1,0 +1,365 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Optimising Smarter: Joint Optimisation of RL Hyperparameters and Reward Shape - AutoRL.org</title>
+<meta name="description" content="">
+
+
+  <meta name="author" content="Julian Dierkes">
+  
+  <meta property="article:author" content="Julian Dierkes">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="AutoRL.org">
+<meta property="og:title" content="Optimising Smarter: Joint Optimisation of RL Hyperparameters and Reward Shape">
+<meta property="og:url" content="http://localhost:4000/blog/combined-optimisation/">
+
+
+  <meta property="og:description" content="">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2025-01-08T00:00:00+01:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/blog/combined-optimisation/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="AutoRL.org Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--splash_with_author" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          AutoRL.org
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/about-autorl/"
+                
+                
+              >What is AutoRL?</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/blog/"
+                
+                
+              >Blog</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/dates/"
+                
+                
+              >Dates</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about-us/"
+                
+                
+              >The Team</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/packages/"
+                
+                
+              >Packages</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+  <div class="page__hero page__hero--overlay" style="background-color: #000; ">
+    <div class="wrapper">
+      
+        <h1 id="page-title" class="page__title" itemprop="headline">
+          Optimising Smarter: Joint Optimisation of RL Hyperparameters and Reward Shape
+
+        </h1>
+      
+
+      
+        <div class="author__info">
+          
+
+          <div class="author__content">
+            <h3 class="author__name" itemprop="name">
+              <i class="fas fa-user author__icon"></i>
+              
+                <a href="" class="author__link">Julian Dierkes</a>
+              
+            </h3>
+            
+            <div class="post__dates">
+              <i class="fas fa-calendar-alt date__icon"></i>
+              
+                January 08, 2025
+              
+            </div>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+
+
+<div id="main" role="main">
+  <article class="splash" itemscope itemtype="https://schema.org/CreativeWork">
+    <section class="page__content" itemprop="text">
+      <script type="text/javascript" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+<p>TL;DR: Jointly optimising hyperparameters and reward shapes in RL outperforms separate tuning, delivering better performance and stability, even in complex environments like Robosuite Wipe. No hand-tuning required!</p>
+
+<h3 id="optimising-smarter-joint-optimisation-of-rl-hyperparameters-and-reward-shape">Optimising Smarter: Joint Optimisation of RL Hyperparameters and Reward Shape</h3>
+
+<p>RL has achieved remarkable advancements, but one basic challenge remains ever-present: tuning hyperparameters and reward functions.
+This is tedious yet critical and can determine the success or failure of an RL algorithm.
+Traditionally, these two components are optimised independently, and in benchmark environments, reward functions are often left untuned altogether.
+This raises the question: is the tuning of hyperparameters and reward shapes truly independent?</p>
+
+<p>In our work, <em>Combining Automated Optimisation of Hyperparameters and Reward Shape</em> (Dierkes et al. 2024), we demonstrated that they actually are dependent and achieving optimal RL performance requires tuning both components together.
+This challenges the conventional approaches and calls for more unified optimisation frameworks.</p>
+
+<h4 id="interdependency-between-hyperparameters-and-reward-parameters">Interdependency between Hyperparameters and Reward Parameters</h4>
+
+<p>To better understand the interdependence of hyperparameters and reward shapes, we conducted experiments training the PPO algorithm on LunarLander.
+Specifically, we performed an exhaustive grid search over various hyperparameter values and reward weights in the reward function, analysing how each pair influenced training performance.</p>
+
+<p>These findings are visualised in Figure 1, depicting the complex relationships between hyperparameters and reward weights.
+For instance, the distance weight reveals a non-convex region where successful training parameters emerge and further, performance can vary across the whole search space.
+Meanwhile, the velocity weights can have sharp boundaries that clearly separate regions of success from complete failure, showing the balance required for effective tuning. 
+While our analysis was limited to pairwise combinations, it is reasonable to expect even stronger dependencies in higher-dimensional parameter spaces.</p>
+
+<div style="text-align: center;">
+  <img src="/assets/images/combined_optimisation_2024/heatmap_matrix_rewmin.png" width="600" height="600" />
+</div>
+<div style="text-align: left; margin-top: 5px;">
+  Figure 1: Landscapes depicting the average return on Gymnasium LunarLander for pairwise hyperparameter and reward parameters over ten PPO trainings.
+  Lower values (lighter) correspond to faster landing time and, thus, better performance. The yellow lines mark the default values for each parameter.
+  The blue line denotes the best-performing hyperparameter value for each specific reward value. The black dots mark the incumbent configurations found in the later joint optimisation experiments.
+</div>
+<p><br /></p>
+
+<p>Hyperparameters and reward weights are therefore intricately linked, and their joint optimisation is important for achieving the best possible performance in RL applications.
+Independent optimisation approaches fail to capture these interdependencies, leaving potential performance gains unexplored.</p>
+
+<h4 id="joint-optimisation-in-practice">Joint Optimisation in Practice</h4>
+
+<p>Recognising these interdependencies, the next step was to design a practical optimisation approach.
+Our goal was to examine a method that could seamlessly integrate with existing black-box hyperparameter optimisation workflows while jointly optimising reward weights.</p>
+
+<p>Figure 2 provides an overview of our optimisation loop. In this framework:</p>
+<ol>
+  <li>Both hyperparameters \(\theta\) of the RL algorithm as well as scale \(\alpha\) and weights \(w\) of the reward shape are treated as part of a unified search space.</li>
+  <li>The optimisation algorithm evaluates configurations by training the RL agent with hyperparameters \(\theta\) on the reward shaped environment \(\mathcal{M}_{\alpha, w}\).
+The it measures its external task performance \(\mathcal{O}_{\text{goal}}(\pi)\), a simple and sparse objective function to measure final policy performance (e.g. time of a successful landing in LunarLander).</li>
+  <li>Promising configurations are iteratively refined, enabling joint optimisation of both components.</li>
+</ol>
+
+<div style="text-align: center;">
+  <img src="/assets/images/combined_optimisation_2024/optimisation_loop.png" style="max-width: 400px; height: auto;" />
+</div>
+<div style="text-align: left; margin-top: 5px;">
+  Figure 2: Illustration of the two-level optimisation process.
+  Outer loop: hyperparameter and reward parameter optimisation; inner loop: RL training.
+  In each iteration, the parameter optimiser chooses parameters and receives their performance measured by \(\mathcal{O}_{\text{goal}}(\pi)\).
+</div>
+<p><br /></p>
+
+<p>We used the DEHB (Differential Evolution with Hyperband, Noor et al. 2021) algorithm for this purpose, a state-of-the-art multi-fidelity black-box optimiser.
+However, the approach is general and can be easily applied to other black-box optimisation methods (e.g. SMAC or Optuna).</p>
+
+<p>In our experiments, we compared the joint optimisation of hyperparameters and reward weights (requiring no hand-tuning!) with two alternative approaches:</p>
+
+<ol>
+  <li>Optimising only the hyperparameters while using a competitive, pre-defined reward shape.</li>
+  <li>Optimising only the reward weights while keeping the hyperparameters fixed at competitive baseline values.</li>
+</ol>
+
+<p>In the paper, we used the PPO and SAC algorithms across four environments: LunarLander, Google Brax Ant, Google Brax Humanoid, and Robosuite Wipe.
+Among these, Robosuite Wipe stands out as a complex, underexplored environment with a challenging reward structure, making it an excellent testbed for evaluating the generalisability of our approach.</p>
+
+<p>We tested two optimisation strategies:</p>
+
+<ol>
+  <li>Single-objective optimisation, which focuses solely on maximising performance.</li>
+  <li>Multi-objective optimisation, which balances performance and stability by optimising the performance minus the policy’s standard deviation.</li>
+</ol>
+
+<p>The SAC results, as summarised in Figure 3, demonstrated that joint optimisation consistently matched or outperformed the hand-tuned baselines.
+In simpler environments like LunarLander and Ant, joint optimisation reliably recovered baseline performance without requiring any manual tuning.
+In more challenging environments, such as Humanoid and Wipe, joint optimisation went a step further, yielding superior performance.
+For instance, in the Wipe environment, the method achieved a reward score close to the theoretical maximum of 141, showing its ability to handle complex reward structures and extract maximum potential from the task.</p>
+
+<div style="text-align: center;">
+  <img src="/assets/images/combined_optimisation_2024/performance.png" style="max-width: 100%; height: auto;" />
+</div>
+<div style="text-align: left; margin-top: 5px;">
+    Figure 3: Boxplots for the SAC optimisation of five median performances of each experiment’s optimisation runs. 
+    The CV[%] measures the stability of a policy via the coefficient of variance (smaller is
+    better).
+</div>
+<p><br /></p>
+
+<p>The multi-objective optimisation further enhanced the utility of joint optimisation by improving the stability of the learned policies.
+While maintaining a similar level of average performance, this approach significantly reduced the variance in performance across training runs in many cases.
+Such consistency is crucial for real-world applications, where reliable policy behaviour can be as important as achieving peak performance.</p>
+
+<p>Finally, we found that joint optimisation comes with minimal computational overhead, meaning its benefits are essentially free!</p>
+
+<h4 id="implications-and-future-directions">Implications and Future Directions</h4>
+
+<p>Our findings have broad implications for RL research and applications:</p>
+
+<ol>
+  <li><strong>Unified Optimisation:</strong> Hyperparameters and reward shapes should always be optimised jointly to account for their interdependencies.</li>
+  <li><strong>Practicality:</strong> Our approach integrates easily into existing optimisation pipelines and scales effectively to new environments.</li>
+  <li><strong>Generalisability:</strong> The method is robust across diverse benchmarks, including less-studied environments like Wipe, making it suitable for real-world applications.</li>
+</ol>
+
+<p>Future research needs to extend this work by exploring more sophisticated reward function transformations and investigating the trade-off between performance and stability in RL training.</p>
+
+<p>More information about this work and implementation details can be found in the paper’s GitHub repository <a href="https://github.com/ADA-research/combined_hpo_and_reward_shaping">here</a> and the paper <a href="https://arxiv.org/abs/2406.18293">here</a>.</p>
+
+    </section>
+  </article>
+</div>
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2025 <a href="http://localhost:4000">AutoRL.org</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>
