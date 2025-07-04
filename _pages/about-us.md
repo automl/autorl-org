@@ -12,9 +12,9 @@ We're also a subset of [AutoML.org](https://www.automl.org/). At [the AutoML Spa
 The current contributors to AutoRL.org are (in alphabetical order):
 
 [André Biedenkapp](https://andrebiedenkapp.github.io/)  
+[Julian Dierkes](https://labchameleon.github.io)  
 [Theresa Eimer](https://theeimer.github.io/)  
 [Aditya Mohan](https://www.ai.uni-hannover.de/de/institut/team-luhai/mohan)  
 [Raghu Rajan](https://ml.informatik.uni-freiburg.de/profile/rajan/)  
-[Julian Dierkes](https://labchameleon.github.io)  
 
 Furthermore, AutoRL.org is supported by the [Institute of AI Hannover](https://www.ai.uni-hannover.de/de/) led by [Marius Lindauer](https://www.ai.uni-hannover.de/de/lindauer).
