@@ -6,12 +6,10 @@ title: "Dates"
 This is a (likely incomplete) list of important dates and event relating to AutoRL. Please tell us if we missed anything!
 
 ## Upcoming Dates
-
+- 17.09.25: We will be at [EWRL 2025](https://ewrl.wordpress.com/ewrl18-2025/) where we have three papers accepted and Theresa will be giving a contributed talk titled "Reinforcement Learning Algorithms Are Misbehaved Black Boxes"
 
 ## Past Dates
 - 19.03.25: Abstract paper deadline for [AutoML'25](https://2025.automl.cc/dates/)
-- 14.02.25: Abstract paper deadline for [RLC'25](https://rl-conference.cc/)
-- 23.01.25: Abstract paper deadline for [ICML'25](https://icml.cc/)
 - 19.10.24: Theresa and André will be giving a half-day [tutorial on AutoRL at ECAI 2024](https://autorl.org/tutorial-ecai/)
 - 10.09.24: Theresa and André will be giving a [tutorial on AutoRL at the international conference on AutoML](https://2024.automl.cc/?page_id=1575)
 - 06.09.24: Theresa and André will be giving a [tutorial on AutoRL at the AutoML School](https://www.automlschool.org/)
