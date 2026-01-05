@@ -22,9 +22,5 @@ The simplicity of this paradigm raises the expectations that RL should be applic
 
 
 # Announcements
-* Theresa Eimer and André Biedenkapp will be giving a series of tutorials on AutoRL in September and October:
-  * 06.09.24 [AutoML School](https://www.automlschool.org/)
-  * 10.09.24 [AutoML'24 Conference](https://2024.automl.cc/?page_id=1575)
-  * 18.10.24 [ECAI'24](https://www.ecai2024.eu/programme/tutorials)
-* We are excited to announce the first AutoRL workshop at ICML 2024, Vienna.
-  Please visit the [workshop website](https://autorlworkshop.github.io/) for more details.
+* Theresa Eimer will be giving a talk at the [Workshop on Reinforcement Learning](https://www.wim.uni-mannheim.de/doering/conferences/rl-2026/) at the University of Mannheim on February 6, 2026.
+* The [COSEAL](https://www.coseal.net/) collective has published a paper in time for the holidays. It is meant for students or early PhD students who are not so familiar with the field AutoML/AutoRL and Meta-Algorithmics in general and those are seeking guidance for their first steps. Check it out on [arXiv](https://arxiv.org/abs/2512.16491)
