@@ -1,4 +1,126 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-04-22T15:19:39+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">AutoRL.org</title><subtitle>AutoRL aims to make RL applicable out of the box by using AutoML and Meta-Learning to make it more efficient, robust and general. AutoRL.org provides an overview of the state of AutoRL.</subtitle><entry><title type="html">2024 in AutoRL</title><link href="http://localhost:4000/blog/retrospective-24/" rel="alternate" type="text/html" title="2024 in AutoRL" /><published>2025-01-09T00:00:00+01:00</published><updated>2025-01-09T00:00:00+01:00</updated><id>http://localhost:4000/blog/retrospective-24</id><content type="html" xml:base="http://localhost:4000/blog/retrospective-24/"><![CDATA[<p>TL;DR: From integrating RL with VLMs and LLMs to hyperparameter tuning, environment design, and generalization, 2024 was packed with innovation. 
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-04-07T14:07:22+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">AutoRL.org</title><subtitle>AutoRL aims to make RL applicable out of the box by using AutoML and Meta-Learning to make it more efficient, robust and general. AutoRL.org provides an overview of the state of AutoRL.</subtitle><entry><title type="html">ARLBench: Flexible and Efficient Benchmarking for Hyperparameter Optimization in Reinforcement Learning</title><link href="http://localhost:4000/blog/arlbench/" rel="alternate" type="text/html" title="ARLBench: Flexible and Efficient Benchmarking for Hyperparameter Optimization in Reinforcement Learning" /><published>2026-03-09T00:00:00+01:00</published><updated>2026-03-09T00:00:00+01:00</updated><id>http://localhost:4000/blog/arlbench</id><content type="html" xml:base="http://localhost:4000/blog/arlbench/"><![CDATA[<script type="text/javascript" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+<p>TL;DR: ARLBench provides a standardized AutoRL benchmark by combining JAX-powered implementations with representative subsets, making high-performance AutoRL research accessible.</p>
+<ul>
+  <li><strong>Speed</strong>: Delivers up to 10x faster evaluation than standard libraries, using JAX-based training and statistically selected environment subsets.</li>
+  <li><strong>Flexibility</strong>: Supports static, multi-fidelity, and dynamic HPO (like PBT) through a Gymnasium-like interface with full checkpointing capabilities.</li>
+  <li><strong>Validity</strong>: Uses a massive dataset of 100,000+ runs to prove that its environment subsets accurately represent the global RL task space.</li>
+  <li><strong>Key Insight</strong>: RL-specific HPO benchmarks contrast sharply with supervised learning and are therefore highly desirable; standard “off-the-shelf” optimizers can struggle against Random Search on RL’s rugged landscapes.</li>
+</ul>
+
+<p>Check out the <a href="github.com/automl/arlbench">GitHub repository</a>.</p>
+
+<p>Hyperparameter optimization (HPO) is one of the main obstacles to reliable reinforcement learning (RL). Modern RL algorithms expose large, highly sensitive configuration spaces, and their performance varies widely across environments and random seeds. 
+Despite progress in automated RL (AutoRL), empirical evaluations of HPO methods remain expensive, fragmented, and difficult to compare. 
+ARLBench addresses this problem by introducing <strong>an efficient and standardized benchmark for HPO in RL that substantially reduces computational cost while maintaining a representative comparison of HPO methods</strong>.</p>
+
+<h2 id="what-makes-hpo-for-rl-different-from-supervised-machine-learning">What makes HPO for RL different from Supervised Machine Learning?</h2>
+
+<p>In contrast to supervised learning, HPO in RL faces <strong>non-stationary training dynamics, rugged optimization landscapes, and high variance across seeds</strong>. 
+Small changes in hyperparameters can lead to catastrophic failure, and good configurations rarely transfer between environments. 
+As a consequence, most HPO methods are evaluated on a small number of tasks with limited configuration spaces, making it difficult to assess generality or establish meaningful baselines. 
+ARLBench is designed to provide a common ground for evaluating AutoRL methods under realistic conditions.</p>
+
+<h2 id="how-does-arlbench-solve-this">How does ARLBench Solve This?</h2>
+
+<p>ARLBench is a benchmark framework built specifically for HPO in RL. 
+It combines highly optimized JAX-based implementations of DQN, PPO, and SAC with a flexible interface that supports static, multi-fidelity, and dynamic hyperparameter optimization. 
+The framework is complemented by a systematic subset selection strategy for environments and a large-scale meta-dataset capturing hyperparameter landscapes across algorithms and domains.</p>
+
+<p>A central goal of ARLBench is <strong>efficiency</strong>. 
+Compared to commonly used RL libraries, JAX implementations yield substantial speedups, and using representative environment subsets further reduces runtime. 
+Together, these design choices lower the cost of evaluating HPO methods by approximately an order of magnitude.</p>
+
+<div style="text-align: center;">
+  <img src="/assets/images/arlbench_2026/speedup.png" width="800" height="800" />
+</div>
+<div style="text-align: left; margin-top: 5px;">
+  Figure 1: Running time comparison for an HPO method of 32 RL runs using 10 seeds each on the full environment set and our subsets between ARLBench and StableBaselines3 (SB3; [Raffin et al.,2021](github.com/DLR-RM/stable-baselines3/tree/master↗)).
+</div>
+<p><br /></p>
+
+<h2 id="the-autorl-environment-interface">The AutoRL Environment Interface</h2>
+
+<p>At the core of ARLBench lies the AutoRL Environment, which serves as <strong>the interaction point between an HPO method and RL training</strong>. 
+The interface is inspired by Gymnasium and allows an optimizer to specify both a hyperparameter configuration and a training budget at each optimization step. 
+ARLBench then executes the corresponding RL training run and returns optimization objectives such as evaluation return or runtime, along with optional state information such as gradients or losses.</p>
+
+<p>Furthermore, this interface supports <strong>dynamic HPO</strong>. 
+Training state, including network parameters and optimizer state, can be checkpointed, restored, or duplicated. 
+This enables population-based methods, adaptive schedules, and meta-gradient approaches to be evaluated in a unified and reproducible manner.</p>
+
+<div style="text-align: center;">
+  <img src="/assets/images/arlbench_2026/overview.png" style="max-width: 800px; height: auto;" />
+</div>
+<div style="text-align: left; margin-top: 5px;">
+  Figure 2: Overview of the ARLBench framework.
+</div>
+<p><br /></p>
+
+<h2 id="selecting-representative-environments">Selecting Representative Environments</h2>
+<p>Efficiency alone is not sufficient for meaningful benchmarking. 
+ARLBench therefore addresses the question of <strong>which environments best represent the broader RL task space</strong>. 
+To this end, we conduct a large-scale pre-study in which hundreds of hyperparameter configurations are evaluated across diverse environments spanning the Arcade Learning Environment (ALE), Classic Control, Box2D, Brax robotics, and XLand grid worlds.</p>
+
+<p>Using these data, ARLBench applies a regression-based subset selection method that <strong>identifies small sets of environments</strong> whose performance rankings are highly predictive of average performance across all environments. 
+The resulting subsets contain five environments for PPO and DQN and four for SAC.</p>
+
+<div style="text-align: center;">
+  <img src="/assets/images/arlbench_2026/spearman.png" style="max-width: 100%; height: auto;" />
+</div>
+<div style="text-align: left; margin-top: 5px;">
+    Figure 3: Comparison of the Spearman correlation for different subset sizes with confidence intervals from 5-fold cross-validation on the configurations.
+</div>
+<p><br /></p>
+
+<div style="text-align: center;">
+  <img src="/assets/images/arlbench_2026/subsets.png" style="max-width: 100%; height: auto;" />
+</div>
+<div style="text-align: left; margin-top: 5px;">
+    Figure 4: Selected set of representative environments per algorithm.
+</div>
+<p><br /></p>
+
+<h2 id="preserving-hpo-landscape-properties">Preserving HPO Landscape Properties</h2>
+
+<p>A key concern with environment reduction is whether it distorts the underlying HPO problem. 
+ARLBench addresses this by <strong>comparing hyperparameter landscapes on the full environment sets and their corresponding subsets</strong>. 
+Return distributions over randomly sampled configurations show that the subsets preserve both easy and adversarial regimes, including skewed distributions and sharp performance transitions.
+Future research needs to extend this work by exploring more sophisticated reward function transformations and investigating the trade-off between performance and stability in RL training.</p>
+
+<p>Analyses of hyperparameter importance further confirm that the number and structure of influential hyperparameters remain largely unchanged. 
+In addition, evaluations of several HPO optimizers—random search, population-based training, SMAC, and SMAC with Hyperband—show consistent relative performance rankings on subsets and full sets.</p>
+
+<div style="text-align: center;">
+  <img src="/assets/images/arlbench_2026/performance_boxplots.png" style="max-width: 100%; height: auto;" />
+</div>
+<div style="text-align: center;">
+  <img src="/assets/images/arlbench_2026/performance_over_time.png" style="max-width: 100%; height: auto;" />
+</div>
+<div style="text-align: left; margin-top: 5px;">
+    Figure 5: Comparison of HPO methods’ scores on the subset and full environment set (higher is better). Top: Performance distributions over optimizer runs and environments. Medians and means are visualized using black and dotted gray lines, respectively. Bottom: HPO anytime performance with 95% confidence intervals.
+</div>
+<p><br /></p>
+
+<p>Results obtained with ARLBench reinforce the view that HPO in RL is fundamentally challenging. 
+Hyperparameter landscapes are often highly irregular, and state-of-the-art optimizers do not consistently outperform random search. 
+This behavior contrasts sharply with supervised learning and highlights the need for RL-specific HPO research rather than direct transfer of existing methods.</p>
+
+<h2 id="outlook">Outlook</h2>
+<p>ARLBench provides an efficient, flexible, and empirically grounded benchmark for hyperparameter optimization in reinforcement learning. 
+By combining fast implementations, representative environment subsets, and a large public dataset, it enables rigorous, comparable evaluation of AutoRL methods at a fraction of the cost required previously. 
+As such, ARLBench lays the groundwork for more systematic progress in automated reinforcement learning research.</p>
+
+<p>ARLBench currently focuses on model-free RL algorithms and standard environment benchmarks. 
+While this scope already covers a large portion of RL research, future extensions are planned to include richer algorithm variants, policy generalization, and surrogate modeling for dynamic HPO. 
+Despite remaining computational costs, ARLBench prioritizes realism and flexibility over purely tabular benchmarks.</p>
+
+<p>Full paper: <a href="arxiv.org/abs/2409.18827">arxiv.org/abs/2409.18827</a></p>
+
+<p>GitHub: <a href="github.com/automl/arlbench">github.com/automl/arlbench</a></p>
+
+<p>Dataset on Hugging Face: <a href="huggingface.co/datasets/autorl-org/arlbench">huggingface.co/datasets/autorl-org/arlbench</a></p>]]></content><author><name></name></author><category term="Blog" /><category term="Paper" /><category term="2026" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">2024 in AutoRL</title><link href="http://localhost:4000/blog/retrospective-24/" rel="alternate" type="text/html" title="2024 in AutoRL" /><published>2025-01-09T00:00:00+01:00</published><updated>2025-01-09T00:00:00+01:00</updated><id>http://localhost:4000/blog/retrospective-24</id><content type="html" xml:base="http://localhost:4000/blog/retrospective-24/"><![CDATA[<p>TL;DR: From integrating RL with VLMs and LLMs to hyperparameter tuning, environment design, and generalization, 2024 was packed with innovation. 
 We’ve highlighted top advancements in AutoRL and included a selection of our own projects at the end. 
 Dive in to explore the cutting-edge in RL from the past year!</p>
 
@@ -392,4 +514,4 @@ The workshops page for ICML is <a href="https://icml.cc/virtual/2024/events/work
 </center>
 <p><br /></p>
 
-<p>These are our best of 2023 – what have we missed, what are your highlights? Hopefully, 2024 can give us a similarly diverse range of exciting AutoRL research &amp; software. Apart from the usual suspects, the <a href="https://rl-conference.cc/">RL conference</a> with its first edition as well as <a href="https://lifelong-ml.cc/">COLLAs</a> and the <a href="https://2024.automl.cc/">AutoML-Conf</a> with their fourth and third editions respectively are likely venues for great AutoRL work in the coming year. So happy New Year and happy researching!</p>]]></content><author><name></name></author><category term="Blog" /><category term="Review" /><category term="2023" /><summary type="html"><![CDATA[TL;DR: From combining RL with LLMs through more efficient MetaRL and updates in an environment design to classic hyperparameter optimization, these are some of our top picks, plus a selection of our own AutoRL projects at the end of this post. So sit back and enjoy some of the most interesting AutoRL papers of 2023.]]></summary></entry><entry><title type="html">Hyperparameter Tuning in Reinforcement Learning is Easy, Actually</title><link href="http://localhost:4000/blog/hpoinrl-automllink/" rel="alternate" type="text/html" title="Hyperparameter Tuning in Reinforcement Learning is Easy, Actually" /><published>2023-06-05T00:00:00+02:00</published><updated>2023-06-05T00:00:00+02:00</updated><id>http://localhost:4000/blog/hpoinrl-automllink</id><content type="html" xml:base="http://localhost:4000/blog/hpoinrl-automllink/"><![CDATA[<p>TL;DR: Hyperparameter Optimization tools perform well on Reinforcement Learning, outperforming Grid Searches with less than 10% of the budget. If not reported correctly, however, all hyperparameter tuning can heavily skew future comparisons.</p>]]></content><author><name></name></author><category term="Blog" /><category term="link" /><category term="AutoML.org" /><summary type="html"><![CDATA[TL;DR: Hyperparameter Optimization tools perform well on Reinforcement Learning, outperforming Grid Searches with less than 10% of the budget. If not reported correctly, however, all hyperparameter tuning can heavily skew future comparisons.]]></summary></entry><entry><title type="html">Contextualize Me – The Case for Context in Reinforcement Learning</title><link href="http://localhost:4000/blog/contextualizeme-automllink/" rel="alternate" type="text/html" title="Contextualize Me – The Case for Context in Reinforcement Learning" /><published>2023-06-05T00:00:00+02:00</published><updated>2023-06-05T00:00:00+02:00</updated><id>http://localhost:4000/blog/contextualizeme-automllink</id><content type="html" xml:base="http://localhost:4000/blog/contextualizeme-automllink/"><![CDATA[<p>TL;DR: We can model and investigate generalization in RL with contextual RL and our benchmark library CARL. In theory, without adding context we cannot achieve optimal performance and in the experiments we saw that using context information can indeed be beneficial – context matters!</p>]]></content><author><name></name></author><category term="Blog" /><category term="link" /><category term="AutoML.org" /><summary type="html"><![CDATA[TL;DR: We can model and investigate generalization in RL with contextual RL and our benchmark library CARL. In theory, without adding context we cannot achieve optimal performance and in the experiments we saw that using context information can indeed be beneficial – context matters!]]></summary></entry><entry><title type="html">Understanding AutoRL Hyperparameter Landscapes</title><link href="http://localhost:4000/blog/landscapes-automllink/" rel="alternate" type="text/html" title="Understanding AutoRL Hyperparameter Landscapes" /><published>2023-05-31T00:00:00+02:00</published><updated>2023-05-31T00:00:00+02:00</updated><id>http://localhost:4000/blog/landscapes-automllink</id><content type="html" xml:base="http://localhost:4000/blog/landscapes-automllink/"><![CDATA[<p>TL;DR: We investigate hyperparameters in RL by building landscapes of algorithm performance for different hyperparameter values at different stages of training. Using these landscapes we empirically demonstrate that adjusting hyperparameters during training can improve performance, which opens up new avenues to build better dynamic optimizers for RL.</p>]]></content><author><name></name></author><category term="Blog" /><category term="link" /><category term="AutoML.org" /><summary type="html"><![CDATA[TL;DR: We investigate hyperparameters in RL by building landscapes of algorithm performance for different hyperparameter values at different stages of training. Using these landscapes we empirically demonstrate that adjusting hyperparameters during training can improve performance, which opens up new avenues to build better dynamic optimizers for RL.]]></summary></entry><entry><title type="html">TempoRL - Learning When to Act</title><link href="http://localhost:4000/blog/ztemporl-andrelink/" rel="alternate" type="text/html" title="TempoRL - Learning When to Act" /><published>2022-05-22T00:00:00+02:00</published><updated>2022-05-22T00:00:00+02:00</updated><id>http://localhost:4000/blog/ztemporl-andrelink</id><content type="html" xml:base="http://localhost:4000/blog/ztemporl-andrelink/"><![CDATA[<p>TL;DR: Jointly learning when and how to act improves sample efficiency of RL agents through better exploration and improved exploitation.</p>]]></content><author><name></name></author><category term="Blog" /><category term="link" /><category term="demo" /><summary type="html"><![CDATA[TL;DR: Jointly learning when and how to act improves sample efficiency of RL agents through better exploration and improved exploitation.]]></summary></entry><entry><title type="html">Theory-Inspired Parameter Control Benchmarks for DAC</title><link href="http://localhost:4000/blog/theodac-andrelink/" rel="alternate" type="text/html" title="Theory-Inspired Parameter Control Benchmarks for DAC" /><published>2022-05-22T00:00:00+02:00</published><updated>2022-05-22T00:00:00+02:00</updated><id>http://localhost:4000/blog/theodac-andrelink</id><content type="html" xml:base="http://localhost:4000/blog/theodac-andrelink/"><![CDATA[<p>TL;DR: New toy benchmarks enable better study of RL agents performance and allows us to compare against ground truth optimal policies.</p>]]></content><author><name></name></author><category term="Blog" /><category term="link" /><category term="demo" /><summary type="html"><![CDATA[TL;DR: New toy benchmarks enable better study of RL agents performance and allows us to compare against ground truth optimal policies.]]></summary></entry></feed>
+<p>These are our best of 2023 – what have we missed, what are your highlights? Hopefully, 2024 can give us a similarly diverse range of exciting AutoRL research &amp; software. Apart from the usual suspects, the <a href="https://rl-conference.cc/">RL conference</a> with its first edition as well as <a href="https://lifelong-ml.cc/">COLLAs</a> and the <a href="https://2024.automl.cc/">AutoML-Conf</a> with their fourth and third editions respectively are likely venues for great AutoRL work in the coming year. So happy New Year and happy researching!</p>]]></content><author><name></name></author><category term="Blog" /><category term="Review" /><category term="2023" /><summary type="html"><![CDATA[TL;DR: From combining RL with LLMs through more efficient MetaRL and updates in an environment design to classic hyperparameter optimization, these are some of our top picks, plus a selection of our own AutoRL projects at the end of this post. So sit back and enjoy some of the most interesting AutoRL papers of 2023.]]></summary></entry><entry><title type="html">Contextualize Me – The Case for Context in Reinforcement Learning</title><link href="http://localhost:4000/blog/contextualizeme-automllink/" rel="alternate" type="text/html" title="Contextualize Me – The Case for Context in Reinforcement Learning" /><published>2023-06-05T00:00:00+02:00</published><updated>2023-06-05T00:00:00+02:00</updated><id>http://localhost:4000/blog/contextualizeme-automllink</id><content type="html" xml:base="http://localhost:4000/blog/contextualizeme-automllink/"><![CDATA[<p>TL;DR: We can model and investigate generalization in RL with contextual RL and our benchmark library CARL. In theory, without adding context we cannot achieve optimal performance and in the experiments we saw that using context information can indeed be beneficial – context matters!</p>]]></content><author><name></name></author><category term="Blog" /><category term="link" /><category term="AutoML.org" /><summary type="html"><![CDATA[TL;DR: We can model and investigate generalization in RL with contextual RL and our benchmark library CARL. In theory, without adding context we cannot achieve optimal performance and in the experiments we saw that using context information can indeed be beneficial – context matters!]]></summary></entry><entry><title type="html">Hyperparameter Tuning in Reinforcement Learning is Easy, Actually</title><link href="http://localhost:4000/blog/hpoinrl-automllink/" rel="alternate" type="text/html" title="Hyperparameter Tuning in Reinforcement Learning is Easy, Actually" /><published>2023-06-05T00:00:00+02:00</published><updated>2023-06-05T00:00:00+02:00</updated><id>http://localhost:4000/blog/hpoinrl-automllink</id><content type="html" xml:base="http://localhost:4000/blog/hpoinrl-automllink/"><![CDATA[<p>TL;DR: Hyperparameter Optimization tools perform well on Reinforcement Learning, outperforming Grid Searches with less than 10% of the budget. If not reported correctly, however, all hyperparameter tuning can heavily skew future comparisons.</p>]]></content><author><name></name></author><category term="Blog" /><category term="link" /><category term="AutoML.org" /><summary type="html"><![CDATA[TL;DR: Hyperparameter Optimization tools perform well on Reinforcement Learning, outperforming Grid Searches with less than 10% of the budget. If not reported correctly, however, all hyperparameter tuning can heavily skew future comparisons.]]></summary></entry><entry><title type="html">Understanding AutoRL Hyperparameter Landscapes</title><link href="http://localhost:4000/blog/landscapes-automllink/" rel="alternate" type="text/html" title="Understanding AutoRL Hyperparameter Landscapes" /><published>2023-05-31T00:00:00+02:00</published><updated>2023-05-31T00:00:00+02:00</updated><id>http://localhost:4000/blog/landscapes-automllink</id><content type="html" xml:base="http://localhost:4000/blog/landscapes-automllink/"><![CDATA[<p>TL;DR: We investigate hyperparameters in RL by building landscapes of algorithm performance for different hyperparameter values at different stages of training. Using these landscapes we empirically demonstrate that adjusting hyperparameters during training can improve performance, which opens up new avenues to build better dynamic optimizers for RL.</p>]]></content><author><name></name></author><category term="Blog" /><category term="link" /><category term="AutoML.org" /><summary type="html"><![CDATA[TL;DR: We investigate hyperparameters in RL by building landscapes of algorithm performance for different hyperparameter values at different stages of training. Using these landscapes we empirically demonstrate that adjusting hyperparameters during training can improve performance, which opens up new avenues to build better dynamic optimizers for RL.]]></summary></entry><entry><title type="html">TempoRL - Learning When to Act</title><link href="http://localhost:4000/blog/ztemporl-andrelink/" rel="alternate" type="text/html" title="TempoRL - Learning When to Act" /><published>2022-05-22T00:00:00+02:00</published><updated>2022-05-22T00:00:00+02:00</updated><id>http://localhost:4000/blog/ztemporl-andrelink</id><content type="html" xml:base="http://localhost:4000/blog/ztemporl-andrelink/"><![CDATA[<p>TL;DR: Jointly learning when and how to act improves sample efficiency of RL agents through better exploration and improved exploitation.</p>]]></content><author><name></name></author><category term="Blog" /><category term="link" /><category term="demo" /><summary type="html"><![CDATA[TL;DR: Jointly learning when and how to act improves sample efficiency of RL agents through better exploration and improved exploitation.]]></summary></entry></feed>

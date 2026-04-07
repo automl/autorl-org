@@ -22,5 +22,6 @@ The simplicity of this paradigm raises the expectations that RL should be applic
 
 
 # Announcements
+* André has been awarded an [Emmy Noether Grant](https://www.dfg.de/de/aktuelles/neuigkeiten-themen/pressemitteilungen/2026/pressemitteilung-nr-10) for his project 'From Mediocre to Masterful Generalists: The Power of Context in RL' and will start a new group at the KIT in Karlsruhe!
 * Theresa Eimer will be giving a talk at the [Workshop on Reinforcement Learning](https://www.wim.uni-mannheim.de/doering/conferences/rl-2026/) at the University of Mannheim on February 6, 2026.
 * The [COSEAL](https://www.coseal.net/) collective has published a paper in time for the holidays. It is meant for students or early PhD students who are not so familiar with the field AutoML/AutoRL and Meta-Algorithmics in general and those are seeking guidance for their first steps. Check it out on [arXiv](https://arxiv.org/abs/2512.16491)!

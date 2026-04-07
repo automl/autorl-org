@@ -70,4 +70,10 @@ var store = [{
         "tags": ["Review",2024],
         "url": "/blog/retrospective-24/",
         "teaser": null
+      },{
+        "title": "ARLBench: Flexible and Efficient Benchmarking for Hyperparameter Optimization in Reinforcement Learning",
+        "excerpt":"TL;DR: ARLBench provides a standardized AutoRL benchmark by combining JAX-powered implementations with representative subsets, making high-performance AutoRL research accessible. Speed: Delivers up to 10x faster evaluation than standard libraries, using JAX-based training and statistically selected environment subsets. Flexibility: Supports static, multi-fidelity, and dynamic HPO (like PBT) through a Gymnasium-like interface...","categories": ["Blog"],
+        "tags": ["Paper",2026],
+        "url": "/blog/arlbench/",
+        "teaser": null
       }]
