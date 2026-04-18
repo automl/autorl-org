@@ -5,7 +5,40 @@ main:
     url: /blog/
   - title: "Dates"
     url: /dates/
+  - title: "Resources"
+    url: /resources/
   - title: "The Team"
     url: /about-us/
-  - title: "Packages"
-    url: /packages/
+
+resources_sidebar:
+    - title: "Packages"
+      url: /resources/packages/
+      children:
+        - title: "ARLBench"
+          url: https://automl.github.io/arlbench/main/
+        - title: "CARL"
+          url: https://automl.github.io/CARL/main/
+        - title: "HPO-RL-Bench"
+          url: https://github.com/machinelearningnuremberg/HPO-RL-Bench
+        - title: "DACBench"
+          url: https://automl.github.io/DACBench/main/
+        - title: "Mighty"
+          url: https://automl.github.io/Mighty/
+        - title: "MDP-Playground"
+          url: https://github.com/automl/mdp-playground
+    - title: "Tutorials"
+      url: /resources/tutorials/
+      children:
+        - title: "ECAI 2024"
+          url: /resources/tutorials/ecai24/
+        - title: "AutoML Summer School 2024"
+          url: https://www.youtube.com/watch?v=I1H5nZhjsVo
+        - title: "AutoML Conference 2024"
+          url: https://2024.automl.cc/?page_id=1575
+    - title: "Workshops"
+      url: /resources/workshops/
+      children:
+          - title: "AutoRL @ RLC'26"
+            url: https://rl-conference.cc/accepted_workshops.html
+          - title: "AutoRL @ ICML'24"
+            url: https://autorlworkshop.github.io/

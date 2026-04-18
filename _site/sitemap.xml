@@ -62,6 +62,9 @@
 <loc>http://localhost:4000/tutorial-ecai/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/resources/tutorials/ecai24/</loc>
+</url>
+<url>
 <loc>http://localhost:4000/dates/</loc>
 </url>
 <url>
@@ -74,7 +77,16 @@
 <loc>http://localhost:4000/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/packages/</loc>
+<loc>http://localhost:4000/resources/packages/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/resources/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/resources/tutorials/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/resources/workshops/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/blog/page2/</loc>

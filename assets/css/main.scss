@@ -66,3 +66,14 @@
     }
   }
 }
+
+/* Add an icon to external links in the sidebar */
+.sidebar .nav__list a[href^="http"]:after {
+  content: "\f35d"; /* The FontAwesome code for external-link-alt */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 0.7em;
+  margin-left: 5px;
+  vertical-align: super;
+  opacity: 0.6;
+}

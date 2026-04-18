@@ -1,6 +1,9 @@
 ---
-permalink: /packages/
+layout: single
+permalink: /resources/packages/
 title: "AutoRL Packages"
+sidebar:
+  nav: "resources_sidebar"
 ---
 
 This page lists key packages developed or maintained by the AutoRL community that support research in RL and its intersection with Hyperparameter Optimization (HPO), Dynamic Algorithm Configuration (DAC), and Generalization. These packages cover a broad range of functionalities—from benchmark suites and testbeds to modular RL libraries—enabling reproducible experiments, contextual adaptation, and scalable evaluation of learning algorithms.
