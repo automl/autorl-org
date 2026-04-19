@@ -71,6 +71,12 @@ var store = [{
         "url": "/blog/retrospective-24/",
         "teaser": null
       },{
+        "title": "AutoRL: AutoML for RL",
+        "excerpt":"TL;DR: AUsing offline goal-conditioned RL to isolate the effects of exploration and objective design, this study shows that hyperparameter landscapes can be surprisingly “benign.” Quasimetric learning (QRL) stays stable with just one knob (learning rate) that matters, while bootstrapped TD-learning (HIQL) shows drifting sharp optima that force practitioners to retune...","categories": ["Blog"],
+        "tags": ["link","paper"],
+        "url": "/blog/rl-hypers-benign-automllink/",
+        "teaser": null
+      },{
         "title": "ARLBench: Flexible and Efficient Benchmarking for Hyperparameter Optimization in Reinforcement Learning",
         "excerpt":"TL;DR: ARLBench provides a standardized AutoRL benchmark by combining JAX-powered implementations with representative subsets, making high-performance AutoRL research accessible. Speed: Delivers up to 10x faster evaluation than standard libraries, using JAX-based training and statistically selected environment subsets. Flexibility: Supports static, multi-fidelity, and dynamic HPO (like PBT) through a Gymnasium-like interface...","categories": ["Blog"],
         "tags": ["Paper",2026],
