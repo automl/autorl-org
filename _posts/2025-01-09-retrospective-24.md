@@ -1,5 +1,7 @@
 ---
 title: "2024 in AutoRL"
+date: 2025-01-09
+show_date: True
 categories:
   - Blog
 tags:

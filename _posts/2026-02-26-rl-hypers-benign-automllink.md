@@ -1,10 +1,19 @@
 ---
 title: "When Are RL Hyperparameters Benign? Disentangling Objective and Data Quality"
+layout: splash_with_author
+author: Jan Malte Töpperwien
+author_profile: False
+show_date: True
+show_bio: False
+date: 2026-02-26
+header:
+  overlay_color: "#000"
+  overlay_filter: "0.5"
 categories:
   - Blog
 tags:
-  - link
-  - paper
+  - Paper
+  - 2026
 link: https://automl.space/when-are-rl-hyperparameters-benign-disentangling-objective-and-data-quality/
 ---
 

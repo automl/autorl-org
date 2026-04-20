@@ -1,5 +1,7 @@
 ---
 title: "Dreaming of Many Worlds: Learning Contextual World Models Aids Zero-Shot Generalization"
+date: 2024-09-29
+show_date: True
 categories:
   - Blog
 tags:
