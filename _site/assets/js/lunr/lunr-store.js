@@ -71,7 +71,7 @@ var store = [{
         "url": "/blog/retrospective-24/",
         "teaser": null
       },{
-        "title": "AutoRL: AutoML for RL",
+        "title": "When Are RL Hyperparameters Benign? Disentangling Objective and Data Quality",
         "excerpt":"TL;DR: AUsing offline goal-conditioned RL to isolate the effects of exploration and objective design, this study shows that hyperparameter landscapes can be surprisingly “benign.” Quasimetric learning (QRL) stays stable with just one knob (learning rate) that matters, while bootstrapped TD-learning (HIQL) shows drifting sharp optima that force practitioners to retune...","categories": ["Blog"],
         "tags": ["link","paper"],
         "url": "/blog/rl-hypers-benign-automllink/",
