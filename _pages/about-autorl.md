@@ -11,4 +11,4 @@ The simplicity of this paradigm raises the expectations that RL should be applic
 
 AutoRL attempts overcome these issues by applying techniques from AutoML and Meta-Learning to RL, making it more efficient, more reliable and more general. This site aims to provide a hub for information on the state of AutoRL from our own groups in Freiburg and Hannover and beyond.
 
-Until we fully flesh out this site, see [https://www.automl.org/automated-reinforcement-learning/](https://www.automl.org/automated-reinforcement-learning/) for more information.
+For more details check out our existing [Tutorials on AutoRL]({{ site.baseurl }}/resources/tutorials/){: .btn .btn--info}
