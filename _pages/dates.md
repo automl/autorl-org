@@ -6,7 +6,8 @@ title: "Dates"
 This is a (likely incomplete) list of important dates and event relating to AutoRL. Please tell us if we missed anything!
 
 ## Upcoming Dates
-- 15.08.26: AutoRL workshop as part of [RLC'26](https://rl-conference.cc/accepted_workshops.html).
+- 15.08.26: AutoRL workshop as part of [RLC'26](https://rl-conference.cc/accepted_workshops.html)
+- 22.05.26: Submission deadline for this years [AutoRL workshop](https://sites.google.com/view/automatedrl/submission-guide)
 - 30.04.26: Full paper deadline for this year's [AutoML Conf](https://2026.automl.cc/)
 
 ## Past Dates
