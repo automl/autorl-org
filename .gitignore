@@ -1,0 +1,19 @@
+# Jekyll build output
+_site/
+
+# Local cache and metadata
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Ruby dependencies
+vendor/
+.bundle/
+Gemfile.lock (optional: keep if you want consistent local builds)
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Optional: Local environment variables
+.env 

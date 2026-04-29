@@ -15,6 +15,6 @@ The current contributors to AutoRL.org are (in alphabetical order):
 [Julian Dierkes](https://labchameleon.github.io)  
 [Theresa Eimer](https://theeimer.github.io/)  
 [Aditya Mohan](https://www.ai.uni-hannover.de/de/institut/team-luhai/mohan)  
-[Raghu Rajan](https://nr.informatik.uni-freiburg.de/people/raghu-rajan)  
+[Raghu Rajan]({{ site.data.authors['raghu'].url }})  
 
 Furthermore, AutoRL.org is supported by the [Institute of AI Hannover](https://www.ai.uni-hannover.de/de/) led by [Marius Lindauer](https://www.ai.uni-hannover.de/de/lindauer).
